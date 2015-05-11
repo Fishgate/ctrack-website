@@ -74,6 +74,13 @@ define('NONCE_SALT',       '9-A)aL~}/z~Kfx5C5f`DpHP+>9_bAmdTNV)Jvnr/^E+NwaM~} 6R
  */
 $table_prefix  = 'wp_';
 
+/* Multisite */
+define('WP_ALLOW_MULTISITE', true);
+define('MULTISITE', true);
+define('SITE_ID_CURRENT_SITE', 1);
+define('BLOG_ID_CURRENT_SITE', 1);
+define('SUBDOMAIN_INSTALL', false);
+
 /* That's all, stop editing! Happy blogging. */
 
 /** Absolute path to the WordPress directory. */
