@@ -1,0 +1,146 @@
+/*****************************************
+*
+*                Header
+*
+*****************************************/
+
+// menu items before scroll (sticky)
+.fusion-main-menu > ul > li > a {
+	-webkit-transition: all 0.3s ease;
+	        transition: all 0.3s ease;
+
+	text-align: center;
+	line-height: 1 !important;
+	height: 65px;
+	padding-top: 19px;
+
+	span {
+		display: block;
+	}
+
+	span.top-menu {
+		font-size: 1.431em;
+		padding: 0 0 5px 0;
+
+	}
+
+	span.bottom-menu {
+		@extend %uppercase;
+		border-top: 2px solid;
+		padding-top: 5px;
+	}
+}
+
+// menu items after scroll (sticky)
+.fusion-header-wrapper.fusion-is-sticky {
+	.fusion-main-menu > ul > li > a {
+		padding-top: 0 !important;
+		color: $ct_dark_blue !important;
+		
+		span.top-menu {
+			padding: 8px 0 5px 0;
+		}
+	}
+}
+
+.fusion-header-v2 .fusion-secondary-header {
+	@extend %noborder;
+}
+
+.fusion-secondary-header {
+	background-color: transparent !important;
+}
+
+.fusion-header-v2 .fusion-header, 
+.fusion-header-v3 .fusion-header, 
+.fusion-header-v4 .fusion-header, 
+.fusion-header-v5 .fusion-header {
+	@extend %noborder;
+}
+
+.fusion-secondary-menu > ul > li {
+	@extend %noborder;
+}
+
+.fusion-fullwidth.homepage-top {
+	margin-top: -55px;
+}
+
+.fusion-main-menu .sub-menu {
+	//always show dropdown
+	/*visibility: visible;
+	opacity: 1;*/
+
+	border-top: 1px solid white !important;
+	background-color: $ct_mid_blue_trans !important;
+	
+	li a:hover {
+		background-color: rgba(255,255,255,0.2) !important;		
+	}
+}
+
+
+
+/*****************************************
+*
+*                  Body
+*
+*****************************************/
+
+.content-boxes .col {
+	background-color: $ct_trans_blue !important;
+    padding: 10px 17px 26px;
+}
+
+.homepage-boxes.fusion-content-boxes .fusion-column {
+	margin-bottom: 0 !important;
+}
+
+
+
+
+/*****************************************
+*
+*              Gravity-forms
+*
+*****************************************/
+
+// request a call specific
+.request-a-call {
+	background: $ct_trans_blue;
+
+	.gform_wrapper {
+
+	}
+}
+
+// everything else
+.gform_wrapper {
+	max-width: 100%;
+	margin: 0;
+
+	.top_label .gfield_label {
+		@extend %hide;
+	}
+
+	.gfield_date_day label, 
+	.gfield_date_month label, 
+	.gfield_date_year label, 
+	.gfield_time_ampm label, 
+	.gfield_time_hour label, 
+	.gfield_time_minute label, 
+	.ginput_complex label, 
+	.instruction {
+		@extend %hide;
+	}
+
+	h3.gform_title {
+		text-transform: uppercase;
+		color: $ct_white;
+		font-size: 20px;
+		border-top: 3px solid;
+		border-bottom: 3px solid;
+		padding: 10px 0;
+	}
+}
+

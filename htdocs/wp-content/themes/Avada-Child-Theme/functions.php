@@ -10,3 +10,17 @@ function avada_lang_setup() {
 	load_child_theme_textdomain( 'Avada', $lang );
 }
 add_action( 'after_setup_theme', 'avada_lang_setup' );
+
+/**
+ * enqueue scripts and styles for the frontend of the child theme
+ */
+function fg_enqueue(){
+    // register fg css
+    wp_register_style('fg-styles', get_stylesheet_directory_uri() . '/css/main.css', array(), '1.0', 'all');
+    wp_enqueue_style('fg-styles');
+
+    // register fg js
+    wp_register_script('fg-scripts', get_stylesheet_directory_uri() . '/js/scripts.min.js', array(), '1.0', true);
+    wp_enqueue_script('fg-scripts');    
+}
+add_action('wp_print_styles', 'fg_enqueue');
