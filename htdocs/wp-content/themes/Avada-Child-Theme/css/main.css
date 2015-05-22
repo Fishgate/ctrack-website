@@ -191,6 +191,9 @@ body, .gform_wrapper .gform_button, .gform_wrapper .gfield input[type=text],
 *                  Body
 *
 *****************************************/
+.fusion-fullwidth.fullwidth-home {
+  margin-bottom: -40px !important; }
+
 .content-boxes .col {
   background-color: rgba(46, 127, 180, 0.8) !important;
   padding: 10px 17px 26px; }
