@@ -61,7 +61,7 @@
 	@extend %noborder;
 }
 
-.fusion-fullwidth.homepage-top {
+.fusion-fullwidth.fullwidth-page-top {
 	margin-top: -55px;
 }
 
@@ -79,12 +79,86 @@
 }
 
 
-
 /*****************************************
 *
 *                  Body
 *
 *****************************************/
+
+.fusion-accordian {
+	.panel-body {
+		padding-bottom: 0;
+	}
+
+	.fusion-panel {
+		@extend %noborder;
+
+		.panel-collapse .panel-body.toggle-content {
+			//color: $ct_dark_blue;
+			font-size: 13px;
+			margin-left: 40px;
+
+			strong {
+				@extend %avalon_boldcondensed;	
+				color: $ct_mid_blue !important;
+				font-size: 15px;
+			}
+		}
+	}
+
+	.panel-title {
+		a {
+			.fa-fusion-box {
+				background-color: $ct_mid_blue !important;
+			}
+		}
+
+		.fusion-toggle-heading {
+			@extend %avalon_boldcondensed;	
+			color: $ct_dark_blue !important;
+			font-size: 15px;
+			@extend %uppercase;
+		}
+	}
+}
+
+.product-box {
+	color: $ct_dark_blue;
+	background: $ct_trans_white !important;
+
+	.fusion-title {
+		margin-bottom: 0;
+	}
+
+	.fusion-content-boxes {
+		.fusion-column {
+			margin-bottom: 0;
+		}
+	}
+
+	.content-boxes {
+		.content-container {
+			margin-top: -33px !important;
+			@extend %avalon_boldcondensed;
+			color: $ct_dark_blue;
+			font-size: 17px;
+			text-align: left;
+		}
+
+		.content-box-heading {
+			display: block !important;
+			border-bottom: 5px solid;
+			color: $ct_mid_blue !important;
+			font-size: 30px !important;
+			@extend %avalon_boldcondensed;
+
+			small {
+				font-size: 13px;
+				@extend %avalon_bookcondensed;
+			}
+		}
+	}
+}
 
 .fusion-fullwidth.fullwidth-home {
 	margin-bottom: -40px !important;
@@ -94,16 +168,55 @@ body {
 	@extend %avalon_book;
 }
 
-.content-boxes .col {
+.fusion-button.shadow {
+	-webkit-box-shadow: 0px 0px 36px 0px rgba(0,0,0,0.28);
+	-moz-box-shadow: 0px 0px 36px 0px rgba(0,0,0,0.28);
+	box-shadow: 0px 0px 36px 0px rgba(0,0,0,0.28);
+}
+
+// i dont know why i had this style here
+/* .fusion-content-boxes .col {
 	background-color: $ct_trans_blue !important;
     padding: 10px 17px 26px;
+} */
+
+
+.fusion-content-boxes.transparent .col {
+	background-color: transparent !important;
+	//background-color: red !important;
 }
+
+.fusion-content-boxes.center {
+	text-align: center;
+
+	.col {
+		display: inline-block;
+	}
+}
+
 
 .homepage-boxes.fusion-content-boxes .fusion-column {
 	margin-bottom: 0 !important;
 }
 
 .fusion-title {
+	&.center {
+		display: block;
+
+		h2, div.title-sep-container {
+			display: block;
+			float: none;
+		}
+
+		h2 {
+			text-align: center;
+		}
+
+		div.title-sep-container {
+			display: none;
+		}
+	}
+
 	h1.title-heading-left, 
 	h2.title-heading-left, 
 	h3.title-heading-left, 
@@ -184,12 +297,12 @@ body {
 	.flip-box-back {
 		.flip-box-back-inner {
 			a {
-				display: block;
+				display: inline-block;
 				background: $ct_darker_blue;
-				width: 53%;
+				width: auto;
 				margin: 0 auto;
-				padding: 2px 0;
-				margin-top: 30px;
+				padding: 2px 12px;
+				margin-top: 0px;
 				@extend %avalon_demi;
 				font-size: 14px !important;
 				color: $ct_white;
@@ -206,7 +319,23 @@ body {
 
 }
 
+.fusion-title {
+	&.white {
+		h1, h2, h3, h4, h5, h6 {
+			color: $ct_white !important;
+		}
+	}	
 
+	&.center {
+		//text-align: center !important;
+	}
+
+	&.no-border {
+		h1, h2, h3, h4, h5, h6 {
+			@extend %noborder;
+		}
+	}
+}
 
 /*****************************************
 *
@@ -252,7 +381,7 @@ body {
 		padding: 10px 0;
 		margin: 0;
 	}
-
+q
 	ul li.gfield {
 		margin-bottom: 9px;
 	}
