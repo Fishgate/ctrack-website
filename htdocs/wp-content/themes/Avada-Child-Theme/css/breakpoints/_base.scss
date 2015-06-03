@@ -70,12 +70,12 @@
 	/*visibility: visible;
 	opacity: 1;*/
 
-	border-top: 1px solid white !important;
+	/*border-top: 1px solid white !important;
 	background-color: $ct_mid_blue_trans !important;
 	
 	li a:hover {
 		background-color: rgba(255,255,255,0.2) !important;		
-	}
+	}*/
 }
 
 
@@ -138,10 +138,59 @@
 	color: $ct_dark_blue;
 	background: $ct_trans_white !important;
 
+	.fusion-button.woo-button {
+		border-width: 0px;
+		color: #ffffff; 
+		border-color: #ffffff;
+		background: #f31700;
+
+		&:hover,
+		&:focus,
+		&:active {
+			border-width: 0px;
+			border-color: #ffffff;
+			color: #ffffff;
+			background: #0770b8;
+		}
+	}
+
 	.fusion-title {
 		margin-bottom: 0;
 	}
 
+	table {
+		tr {
+			td h2, td p {
+				margin: 0; padding: 0;
+			}
+
+			td.product-img {
+				padding-right: 10px;
+			}
+
+			td.product-price h2 {
+				display: inline-block;
+				border-bottom: 5px solid;
+				color: $ct_mid_blue !important;
+				font-size: 30px !important;
+				@extend %avalon_boldcondensed;
+
+				small {
+					font-size: 13px;
+					@extend %avalon_bookcondensed;
+				}
+
+			}
+
+			td.product-quote p {
+				@extend %avalon_boldcondensed;
+				color: $ct_dark_blue;
+				font-size: 17px;				
+			}
+		}
+	}
+	
+	/* rebuilt above using a table instead of the theme content box shortcode
 	.fusion-content-boxes {
 		.fusion-column {
 			margin-bottom: 0;
@@ -169,13 +218,24 @@
 				@extend %avalon_bookcondensed;
 			}
 		}
-	}
+	}*/
+
+
+
 }
 
-
+.fusion-button.full-width {
+	padding-left: 0;
+	padding-right: 0;
+	width: 100%;
+}
 
 .fusion-fullwidth.fullwidth-last {
 	margin-bottom: -40px !important;
+}
+
+.fusion-social-links-footer {
+	width: 30% !important;
 }
 
 body, 
@@ -428,17 +488,20 @@ body,
 
 // request a call specific
 .request-a-call {
-	background: $ct_trans_blue;
-
 	.gform_wrapper {
+		.h3.gform_title {
+			margin-top: 0.4em;
+		}
 
+		background: $ct_trans_blue;
+		padding: 30px;
 	}
 }
 
 // everything else
 .gform_wrapper {
 	max-width: 100% !important;
-	
+	margin-top: 0 !important;
 
 	.top_label .gfield_label {
 		@extend %hide;

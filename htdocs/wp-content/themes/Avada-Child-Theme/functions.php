@@ -24,9 +24,14 @@ function fg_enqueue(){
 add_action('wp_print_styles', 'fg_enqueue');
 
 /**
- * woocommerce custom fields
+ * Page/Post custom fields
  */
 
+
+
+/**
+ * woocommerce custom fields
+ */
 // display fields in admin panel
 function woo_add_custom_general_fields() {
 	global $woocommerce;
@@ -94,5 +99,9 @@ add_action( 'woocommerce_process_product_meta', 'woo_add_custom_general_fields_s
 /**
  * include child-theme shortcodes
  */
-require_once('shortcodes/woocommerce.php');
+require_once('includes/shortcodes.php');
 
+/**
+ * include child-theme meta
+ */
+require_once('includes/metaboxes/ct_dark_light_header.php');
