@@ -85,6 +85,17 @@
 *
 *****************************************/
 
+.fusion-post-content {
+	.fusion-content-sep {
+		height: 1px;
+		border-bottom: none;
+	}
+}
+
+.fusion-blog-layout-grid .fusion-post-wrapper {
+	border-bottom-width: 1px;
+}
+
 .fusion-accordian {
 	.panel-body {
 		padding-bottom: 0;
@@ -121,6 +132,7 @@
 		}
 	}
 }
+
 
 .product-box {
 	color: $ct_dark_blue;
@@ -160,11 +172,47 @@
 	}
 }
 
-.fusion-fullwidth.fullwidth-home {
+
+
+.fusion-fullwidth.fullwidth-last {
 	margin-bottom: -40px !important;
 }
 
-body {
+body, 
+#nav ul li ul li a, 
+#sticky-nav ul li ul li a, 
+.more, 
+.avada-container h3, 
+.meta .fusion-date, 
+.review blockquote q, 
+.review blockquote div strong, 
+.project-content .project-info h4, 
+.post-content blockquote, 
+.fusion-load-more-button, 
+.ei-title h3, 
+.comment-form input[type="submit"], 
+.wpcf7-form input[type="submit"], 
+.gform_wrapper .gform_button, 
+.woocommerce-success-message .button, 
+.woocommerce .single_add_to_cart_button, 
+.woocommerce button.button, 
+.woocommerce .shipping-calculator-form .button, 
+.woocommerce .checkout #place_order, 
+.woocommerce .checkout_coupon .button, 
+.woocommerce .login .button, 
+.woocommerce .register .button, 
+.fusion-page-title-bar h3, 
+.fusion-blog-shortcode .fusion-timeline-date, 
+#reviews #comments > h2, 
+.fusion-image-wrapper .fusion-rollover .fusion-rollover-content .fusion-rollover-title, 
+.fusion-image-wrapper .fusion-rollover .fusion-rollover-content .fusion-rollover-categories, 
+.fusion-image-wrapper .fusion-rollover .fusion-rollover-content a, 
+.fusion-image-wrapper .fusion-rollover .fusion-rollover-content .price,
+#wrapper #nav ul li ul li > a,
+#wrapper #sticky-nav ul li ul li > a,
+#bbp_user_edit_submit,
+.ticket-selector-submit-btn[type=submit],
+.gform_page_footer input[type=button] {
 	@extend %avalon_book;
 }
 
@@ -256,6 +304,12 @@ body {
 
 }
 
+#main .post h2 {
+	/* @extend %avalon_demi;
+	font-size: 22px !important;
+  	line-height: 1 !important; */
+}
+
 .fusion-recent-posts {
 	margin-bottom: 0;
 
@@ -265,59 +319,88 @@ body {
 	}
 }
 
-.fusion-flip-boxes {
-	margin-top: 25px;
-}
-
-.fusion-flip-box {
-	.flip-box-front,
-	.flip-box-back {
-		background-color: $ct_trans_blue !important;
-		@extend %noradius;
-		padding-left: 38px;
-		padding-right: 38px;
-	}
-
-	.flip-box-front {
-		.flip-box-heading {
-			@extend %avalon_boldcondensed;
-			@extend %uppercase;
-			font-size: 25px !important;
-			border-top: 5px solid $ct_white;
-			border-bottom: 5px solid $ct_white;
-			padding: 8px 0;
-			letter-spacing: 1px;
+.fusion-flip-boxes.blockquote {
+	.fusion-flip-box {
+		.flip-box-front {
+			.flip-box-heading {
+				&:before { content: "\0022"; }
+				&:after { content: "\0022"; }
+			}
 		}
 	}
+}
 
-	.flip-box-inner-wrapper {
-		margin-top: 15px;
-	}
+.fusion-flip-boxes.no-margin-top {
+	margin-top: -15px; //maintains spacing between flip box rows, but makes the shortcode sit flush with the top of its container
+}
 
-	.flip-box-back {
-		.flip-box-back-inner {
-			a {
-				display: inline-block;
-				background: $ct_darker_blue;
-				width: auto;
-				margin: 0 auto;
-				padding: 2px 12px;
-				margin-top: 0px;
-				@extend %avalon_demi;
-				font-size: 14px !important;
-				color: $ct_white;
+.fusion-flip-boxes.ct-flipboxes {
+	//margin-top: 25px;
+
+	.fusion-flip-box {
+		.flip-box-front,
+		.flip-box-back {
+			background-color: $ct_trans_blue !important;
+			@extend %noradius;
+			padding-left: 38px;
+			padding-right: 38px;
+		}
+
+		.flip-box-front {
+			.flip-box-front-inner {
+				.flip-box-grafix {
+					img {
+						height: auto;
+						width: 90px;
+					}
+				}
+			}
+
+			.flip-box-heading {
+				@extend %avalon_boldcondensed;
+				@extend %uppercase;
+				font-size: 21px !important;
+				border-top: 5px solid $ct_white;
+				border-bottom: 5px solid $ct_white;
+				padding: 8px 0;
+				letter-spacing: 1px;
+				line-height: 20px !important;
 			}
 		}
 
-		.flip-box-heading-back {
-			@extend %avalon_demi;
-			font-size: 16px !important;
-			text-transform: initial;
+		.flip-box-inner-wrapper {
+			margin-top: 15px;
+		}
+
+		.flip-box-back {
+			.fusion-button {
+				display: inline-block;
+			}
+
+			.flip-box-back-inner {
+				// this is being handled with the button shortcode now
+				/*a {
+					display: inline-block;
+					background: $ct_darker_blue;
+					width: auto;
+					margin: 0 auto;
+					padding: 2px 12px;
+					margin-top: 0px;
+					@extend %avalon_demi;
+					font-size: 14px !important;
+					color: $ct_white;
+				}*/
+			}
+
+			.flip-box-heading-back {
+				@extend %avalon_demi;
+				font-size: 16px !important;
+				text-transform: initial;
+			}
 		}
 	}
-
-
 }
+
 
 .fusion-title {
 	&.white {
