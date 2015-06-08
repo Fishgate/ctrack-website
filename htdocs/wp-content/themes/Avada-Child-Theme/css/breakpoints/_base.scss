@@ -190,13 +190,8 @@
 		}
 	}
 	
-	/* rebuilt above using a table instead of the theme content box shortcode
-	.fusion-content-boxes {
-		.fusion-column {
-			margin-bottom: 0;
-		}
-	}
-
+	
+	/*
 	.content-boxes {
 		.content-container {
 			margin-top: -33px !important;
@@ -218,8 +213,8 @@
 				@extend %avalon_bookcondensed;
 			}
 		}
-	}*/
-
+	}
+	*/
 
 
 }
@@ -433,6 +428,12 @@ body,
 		}
 
 		.flip-box-back {
+			text-align: left;
+
+			ul {
+				padding-left: 20px;
+			}
+
 			.fusion-button {
 				display: inline-block;
 			}
@@ -453,6 +454,7 @@ body,
 			}
 
 			.flip-box-heading-back {
+				text-align: center;
 				@extend %avalon_demi;
 				font-size: 16px !important;
 				text-transform: initial;
@@ -545,13 +547,13 @@ q
 		width: 100%;
 		background-image: none !important;
 		background: none !important;
-		background-color: $ct_light_blue !important;
+		background-color: $ct_red !important;
 		padding: 10px 0 !important;
 		color: $ct_white !important;
 		@extend %avalon_book;
 
 		&:hover {
-			background: $ct_dark_blue !important;
+			background: $ct_mid_blue !important;
 		}
 	}
 

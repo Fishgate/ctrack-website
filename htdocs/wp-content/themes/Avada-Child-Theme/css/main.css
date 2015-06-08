@@ -218,13 +218,7 @@ body,
 .product-box {
   color: #11375d;
   background: rgba(255, 255, 255, 0.8) !important;
-  	/* rebuilt above using a table instead of the theme content box shortcode
-  	.fusion-content-boxes {
-  		.fusion-column {
-  			margin-bottom: 0;
-  		}
-  	}
-  
+  	/*
   	.content-boxes {
   		.content-container {
   			margin-top: -33px !important;
@@ -246,7 +240,8 @@ body,
   				@extend %avalon_bookcondensed;
   			}
   		}
-  	}*/ }
+  	}
+  	*/ }
   .product-box .fusion-button.woo-button {
     border-width: 0px;
     color: #ffffff;
@@ -372,23 +367,28 @@ body,
   line-height: 20px !important; }
 .fusion-flip-boxes.ct-flipboxes .fusion-flip-box .flip-box-inner-wrapper {
   margin-top: 15px; }
-.fusion-flip-boxes.ct-flipboxes .fusion-flip-box .flip-box-back .fusion-button {
-  display: inline-block; }
-.fusion-flip-boxes.ct-flipboxes .fusion-flip-box .flip-box-back .flip-box-back-inner {
-  /*a {
-  	display: inline-block;
-  	background: $ct_darker_blue;
-  	width: auto;
-  	margin: 0 auto;
-  	padding: 2px 12px;
-  	margin-top: 0px;
-  	@extend %avalon_demi;
-  	font-size: 14px !important;
-  	color: $ct_white;
-  }*/ }
-.fusion-flip-boxes.ct-flipboxes .fusion-flip-box .flip-box-back .flip-box-heading-back {
-  font-size: 16px !important;
-  text-transform: initial; }
+.fusion-flip-boxes.ct-flipboxes .fusion-flip-box .flip-box-back {
+  text-align: left; }
+  .fusion-flip-boxes.ct-flipboxes .fusion-flip-box .flip-box-back ul {
+    padding-left: 20px; }
+  .fusion-flip-boxes.ct-flipboxes .fusion-flip-box .flip-box-back .fusion-button {
+    display: inline-block; }
+  .fusion-flip-boxes.ct-flipboxes .fusion-flip-box .flip-box-back .flip-box-back-inner {
+    /*a {
+    	display: inline-block;
+    	background: $ct_darker_blue;
+    	width: auto;
+    	margin: 0 auto;
+    	padding: 2px 12px;
+    	margin-top: 0px;
+    	@extend %avalon_demi;
+    	font-size: 14px !important;
+    	color: $ct_white;
+    }*/ }
+  .fusion-flip-boxes.ct-flipboxes .fusion-flip-box .flip-box-back .flip-box-heading-back {
+    text-align: center;
+    font-size: 16px !important;
+    text-transform: initial; }
 
 .fusion-title.white h1, .fusion-title.white h2, .fusion-title.white h3, .fusion-title.white h4, .fusion-title.white h5, .fusion-title.white h6 {
   color: #ffffff !important; }
@@ -427,11 +427,11 @@ body,
     width: 100%;
     background-image: none !important;
     background: none !important;
-    background-color: #8fb5e0 !important;
+    background-color: #f31700 !important;
     padding: 10px 0 !important;
     color: #ffffff !important; }
     .gform_wrapper .gform_button:hover {
-      background: #11375d !important; }
+      background: #0770b8 !important; }
   .gform_wrapper .hidden_label input.large,
   .gform_wrapper .hidden_label select.large,
   .gform_wrapper .top_label input.large,

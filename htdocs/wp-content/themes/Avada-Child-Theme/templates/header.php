@@ -186,7 +186,7 @@ function avada_secondary_header() {
 				<option>English</option>
 				<option>Afrikaans</option>
 			</select>-->
-			<div style="margin-top: 11px; margin-bottom: 5px;">
+			<div class="lang-select" style="margin-top: 11px; margin-bottom: 5px;">
 				<a href="#">English</a> | <a href="#">Afrikaans</a>
 			</div>
 		</div>

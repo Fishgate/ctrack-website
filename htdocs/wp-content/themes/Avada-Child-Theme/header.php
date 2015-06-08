@@ -181,8 +181,14 @@
 
 	<?php if(get_post_meta($post->ID, '_ct_header_meta', true) === 'true') { ?>
 		<style>
-		.fusion-main-menu > ul > li > a { color: white !important; }
-		.fusion-secondary-header a, .fusion-secondary-header a:hover, .fusion-secondary-header { color: white !important; }
+		.fusion-main-menu > ul > li > a,
+		.fusion-secondary-menu > ul > li > a,
+		.fusion-social-networks a,
+		.lang-select, .lang-select a
+		{ 
+			color: white !important; 
+		}
+		
 		</style>
 	<?php } ?>
 
