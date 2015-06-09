@@ -20,7 +20,7 @@
 
 	span.top-menu {
 		font-size: 1.431em;
-		padding: 0 0 5px 0;
+		padding: 0 0 2px 0;
 	}
 
 	span.bottom-menu {
@@ -37,7 +37,12 @@
 		color: $ct_dark_blue !important;
 		
 		span.top-menu {
-			padding: 8px 0 5px 0;
+			padding: 13px 0 2px 0;
+			font-size: 1.3em;
+		}
+
+		span.bottom-menu {
+			  padding-top: 3px;
 		}
 	}
 }
@@ -412,7 +417,8 @@ body,
 			}
 
 			.flip-box-heading {
-				@extend %avalon_boldcondensed;
+				//@extend %avalon_boldcondensed;
+				@extend %avalon_demicondensed;
 				@extend %uppercase;
 				font-size: 21px !important;
 				border-top: 5px solid $ct_white;
@@ -490,6 +496,13 @@ body,
 
 // request a call specific
 .request-a-call {
+	.gform_wrapper .gsection .gfield_label, 
+	.gform_wrapper h2.gsection_title, 
+	.gform_wrapper h3.gform_title {
+		font-size: 20px;
+	}
+
+
 	.gform_wrapper {
 		.h3.gform_title {
 			margin-top: 0.4em;
@@ -542,15 +555,17 @@ q
 	.gform_button {	
 		@extend %noradius;
 		@extend %noborder;
+		@extend %uppercase;
 		margin: 0 !important;
-		text-transform: initial !important;
+		font-weight: 700;
 		width: 100%;
 		background-image: none !important;
 		background: none !important;
 		background-color: $ct_red !important;
 		padding: 10px 0 !important;
 		color: $ct_white !important;
-		@extend %avalon_book;
+		//@extend %avalon_book;
+		@extend %avalon_medium;
 
 		&:hover {
 			background: $ct_mid_blue !important;
@@ -566,7 +581,7 @@ q
 	}
 
 	.gform_heading {
-		margin-bottom: 34px !important;
+		margin-bottom: 15px !important;
 	}
 
 	.gfield input[type=text],
@@ -625,4 +640,13 @@ body .gform_wrapper label.gfield_label+div.ginput_container {
 .fusion-footer-widget-area .widget_recent_entries li,
 .fusion-footer-widget-area ul li a {
 	border-color: #7793aa !important;
+}
+
+#toTop {
+	@extend %noradius;
+	background-color: $ct_mid_blue !important;
+
+	&:hover {
+		background: $ct_light_blue !important;
+	}
 }
