@@ -650,3 +650,20 @@ body .gform_wrapper label.gfield_label+div.ginput_container {
 		background: $ct_light_blue !important;
 	}
 }
+
+.myfusion{
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 10000;
+	background-color:#11375d !important;
+	
+}
+
+.fusion-sticky-shadow{
+	top: 44px !important;
+}
+
+.topad{
+	padding-top: 100px;
+}

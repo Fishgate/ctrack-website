@@ -971,10 +971,12 @@ jQuery( window ).load(function() {
 		var resize_height = jQuery(window).height();
 
 		jQuery( window ).resize(function() {
+
 			window.$media_query_test_1 = Modernizr.mq( 'only screen and (min-device-width: 768px) and (max-device-width: 1366px) and (orientation: portrait)' ) ||  Modernizr.mq( 'only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape)' );
 			window.$media_query_test_2 = Modernizr.mq( 'screen and (max-width: 782px)' );
 			window.$media_query_test_3 = Modernizr.mq( 'screen and (max-width: ' + ( 800 + parseInt( js_local_vars.side_header_width ) ) +  'px)' );
 			window.$media_query_test_4 = Modernizr.mq( 'only screen and (max-width: 800px)' );
+
 
 			if( js_local_vars.header_sticky_tablet != '1' && ( window.$media_query_test_1 ) ) {
 				jQuery( '.fusion-header-wrapper, .fusion-header-sticky-height, .fusion-header, .fusion-logo, .fusion-header-wrapper .fusion-main-menu > li a, .fusion-header-wrapper .fusion-secondary-main-menu' ).attr( 'style', '' );
@@ -1016,6 +1018,7 @@ jQuery( window ).load(function() {
 				}
 
 				// Refresh header v1, v2 and v3
+
 				if ( window.$sticky_header_type == 1 ) {
 					if ( jQuery( '.fusion-secondary-header' ).length ) {
 						window.$sticky_trigger_position = Math.round( jQuery( '.fusion-secondary-header' ).offset().top )  - window.$wp_adminbar_height + jQuery( '.fusion-secondary-header' ).outerHeight();
@@ -1025,6 +1028,7 @@ jQuery( window ).load(function() {
 					}
 
 					// Desktop mode
+
 					if ( ! Modernizr.mq( 'only screen and (max-width: 800px)' ) ) {
 						var $logo_height_with_margin = jQuery( '.fusion-logo img:visible' ).outerHeight() + parseInt( js_local_vars.logo_margin_top ) + parseInt( js_local_vars.logo_margin_bottom );
 
@@ -1249,6 +1253,7 @@ jQuery( window ).load(function() {
 			}
 
 			if( jQuery( window ).scrollTop() > window.$sticky_trigger_position ) { // sticky header mode
+
 				if( $sticky_header_scrolled == false ) {
 					var $wp_adminbar_height = 0;
 
@@ -1281,7 +1286,6 @@ jQuery( window ).load(function() {
 
 					if( window.$sticky_header_type == 1 ) {
 						// Animate Header Height
-
 						if( ! Modernizr.mq( 'only screen and (max-width: 800px)' ) ) {
 							jQuery( window.$sticky_trigger ).stop( true, true ).animate({
 								height: window.$scrolled_header_height
@@ -1301,7 +1305,11 @@ jQuery( window ).load(function() {
 
 						// Add sticky shadow
 						setTimeout( function() {
+
+							//adding classes to make sticky header include top header
 							jQuery( '.fusion-header' ).addClass( 'fusion-sticky-shadow' );
+							jQuery('.fusion-secondary-header').addClass('myfusion');
+						
 						}, 150 );
 
 						// Animate header padding
@@ -1364,8 +1372,11 @@ jQuery( window ).load(function() {
 					$sticky_header_scrolled = true;
 				}
 			} else if( jQuery( window ).scrollTop() <= window.$sticky_trigger_position ) {
+
+				//reset classes back to normal
 				jQuery( '.fusion-header-wrapper' ).removeClass( 'fusion-is-sticky' );
-				jQuery( '.fusion-header' ).removeClass( 'fusion-sticky-shadow' );
+				jQuery( '.fusion-secondary-header' ).removeClass( 'myfusion' );
+
 				$logo = jQuery( '.fusion-logo img:visible' );
 
 				if( js_local_vars.mobile_menu_design == 'modern' ) {

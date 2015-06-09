@@ -1,0 +1,670 @@
+/*****************************************
+*
+*                Header
+*
+*****************************************/
+
+// menu items before scroll (sticky)
+.fusion-main-menu > ul > li > a {
+	-webkit-transition: all 0.3s ease;
+	        transition: all 0.3s ease;
+
+	text-align: center;
+	line-height: 1 !important;
+	height: 65px;
+	padding-top: 19px;
+
+	span {
+		display: block;
+	}
+
+	span.top-menu {
+		font-size: 1.431em;
+		padding: 0 0 2px 0;
+	}
+
+	span.bottom-menu {
+		@extend %uppercase;
+		border-top: 2px solid;
+		padding-top: 5px;
+	}
+}
+
+// menu items after scroll (sticky)
+.fusion-header-wrapper.fusion-is-sticky {
+	.fusion-main-menu > ul > li > a {
+		padding-top: 0 !important;
+		color: $ct_dark_blue !important;
+		
+		span.top-menu {
+			padding: 13px 0 2px 0;
+			font-size: 1.3em;
+		}
+
+		span.bottom-menu {
+			  padding-top: 3px;
+		}
+	}
+}
+
+.fusion-header-v2 .fusion-secondary-header {
+	@extend %noborder;
+}
+
+.fusion-secondary-header {
+	background-color: transparent !important;
+}
+
+.fusion-header-v2 .fusion-header, 
+.fusion-header-v3 .fusion-header, 
+.fusion-header-v4 .fusion-header, 
+.fusion-header-v5 .fusion-header {
+	@extend %noborder;
+}
+
+.fusion-secondary-menu > ul > li {
+	@extend %noborder;
+}
+
+.fusion-fullwidth.fullwidth-page-top {
+	margin-top: -55px;
+}
+
+.fusion-main-menu .sub-menu {
+	//always show dropdown
+	/*visibility: visible;
+	opacity: 1;*/
+
+	/*border-top: 1px solid white !important;
+	background-color: $ct_mid_blue_trans !important;
+	
+	li a:hover {
+		background-color: rgba(255,255,255,0.2) !important;		
+	}*/
+}
+
+
+/*****************************************
+*
+*                  Body
+*
+*****************************************/
+
+.fusion-post-content {
+	.fusion-content-sep {
+		height: 1px;
+		border-bottom: none;
+	}
+}
+
+.fusion-blog-layout-grid .fusion-post-wrapper {
+	border-bottom-width: 1px;
+}
+
+.fusion-accordian {
+	.panel-body {
+		padding-bottom: 0;
+	}
+
+	.fusion-panel {
+		@extend %noborder;
+
+		.panel-collapse .panel-body.toggle-content {
+			//color: $ct_dark_blue;
+			font-size: 13px;
+			margin-left: 40px;
+
+			strong {
+				@extend %avalon_boldcondensed;	
+				color: $ct_mid_blue !important;
+				font-size: 15px;
+			}
+		}
+	}
+
+	.panel-title {
+		a {
+			.fa-fusion-box {
+				background-color: $ct_mid_blue !important;
+			}
+		}
+
+		.fusion-toggle-heading {
+			@extend %avalon_boldcondensed;	
+			color: $ct_dark_blue !important;
+			font-size: 15px;
+			@extend %uppercase;
+		}
+	}
+}
+
+
+.product-box {
+	color: $ct_dark_blue;
+	background: $ct_trans_white !important;
+
+	.fusion-button.woo-button {
+		border-width: 0px;
+		color: #ffffff; 
+		border-color: #ffffff;
+		background: #f31700;
+
+		&:hover,
+		&:focus,
+		&:active {
+			border-width: 0px;
+			border-color: #ffffff;
+			color: #ffffff;
+			background: #0770b8;
+		}
+	}
+
+	.fusion-title {
+		margin-bottom: 0;
+	}
+
+	table {
+		tr {
+			td h2, td p {
+				margin: 0; padding: 0;
+			}
+
+			td.product-img {
+				padding-right: 10px;
+			}
+
+			td.product-price h2 {
+				display: inline-block;
+				border-bottom: 5px solid;
+				color: $ct_mid_blue !important;
+				font-size: 30px !important;
+				@extend %avalon_boldcondensed;
+
+				small {
+					font-size: 13px;
+					@extend %avalon_bookcondensed;
+				}
+
+			}
+
+			td.product-quote p {
+				@extend %avalon_boldcondensed;
+				color: $ct_dark_blue;
+				font-size: 17px;				
+			}
+		}
+	}
+	
+	
+	/*
+	.content-boxes {
+		.content-container {
+			margin-top: -33px !important;
+			@extend %avalon_boldcondensed;
+			color: $ct_dark_blue;
+			font-size: 17px;
+			text-align: left;
+		}
+
+		.content-box-heading {
+			display: block !important;
+			border-bottom: 5px solid;
+			color: $ct_mid_blue !important;
+			font-size: 30px !important;
+			@extend %avalon_boldcondensed;
+
+			small {
+				font-size: 13px;
+				@extend %avalon_bookcondensed;
+			}
+		}
+	}
+	*/
+
+
+}
+
+.fusion-button.full-width {
+	padding-left: 0;
+	padding-right: 0;
+	width: 100%;
+}
+
+.fusion-fullwidth.fullwidth-last {
+	margin-bottom: -40px !important;
+}
+
+.fusion-social-links-footer {
+	width: 30% !important;
+}
+
+body, 
+#nav ul li ul li a, 
+#sticky-nav ul li ul li a, 
+.more, 
+.avada-container h3, 
+.meta .fusion-date, 
+.review blockquote q, 
+.review blockquote div strong, 
+.project-content .project-info h4, 
+.post-content blockquote, 
+.fusion-load-more-button, 
+.ei-title h3, 
+.comment-form input[type="submit"], 
+.wpcf7-form input[type="submit"], 
+.gform_wrapper .gform_button, 
+.woocommerce-success-message .button, 
+.woocommerce .single_add_to_cart_button, 
+.woocommerce button.button, 
+.woocommerce .shipping-calculator-form .button, 
+.woocommerce .checkout #place_order, 
+.woocommerce .checkout_coupon .button, 
+.woocommerce .login .button, 
+.woocommerce .register .button, 
+.fusion-page-title-bar h3, 
+.fusion-blog-shortcode .fusion-timeline-date, 
+#reviews #comments > h2, 
+.fusion-image-wrapper .fusion-rollover .fusion-rollover-content .fusion-rollover-title, 
+.fusion-image-wrapper .fusion-rollover .fusion-rollover-content .fusion-rollover-categories, 
+.fusion-image-wrapper .fusion-rollover .fusion-rollover-content a, 
+.fusion-image-wrapper .fusion-rollover .fusion-rollover-content .price,
+#wrapper #nav ul li ul li > a,
+#wrapper #sticky-nav ul li ul li > a,
+#bbp_user_edit_submit,
+.ticket-selector-submit-btn[type=submit],
+.gform_page_footer input[type=button] {
+	@extend %avalon_book;
+}
+
+.fusion-button.shadow {
+	-webkit-box-shadow: 0px 0px 36px 0px rgba(0,0,0,0.28);
+	-moz-box-shadow: 0px 0px 36px 0px rgba(0,0,0,0.28);
+	box-shadow: 0px 0px 36px 0px rgba(0,0,0,0.28);
+}
+
+// i dont know why i had this style here
+/* .fusion-content-boxes .col {
+	background-color: $ct_trans_blue !important;
+    padding: 10px 17px 26px;
+} */
+
+
+.fusion-content-boxes.transparent .col {
+	background-color: transparent !important;
+	//background-color: red !important;
+}
+
+.fusion-content-boxes.center {
+	text-align: center;
+
+	.col {
+		display: inline-block;
+	}
+}
+
+
+.homepage-boxes.fusion-content-boxes .fusion-column {
+	margin-bottom: 0 !important;
+}
+
+.fusion-title {
+	&.center {
+		display: block;
+
+		h2, div.title-sep-container {
+			display: block;
+			float: none;
+		}
+
+		h2 {
+			text-align: center;
+		}
+
+		div.title-sep-container {
+			display: none;
+		}
+	}
+
+	h1.title-heading-left, 
+	h2.title-heading-left, 
+	h3.title-heading-left, 
+	h4.title-heading-left, 
+	h5.title-heading-left, 
+	h6.title-heading-left {
+		@extend %uppercase;
+		@extend %avalon_bold;
+		padding-right: 0;
+		line-height: 1.1;
+		margin-bottom: 12px;
+	}
+
+	h1.title-heading-left {
+		border-bottom: 5px solid;
+	}
+
+	h2.title-heading-left {
+		border-bottom: 5px solid;
+	}
+
+	h3.title-heading-left {
+		border-bottom: 4px solid;
+	}
+
+	h4.title-heading-left {
+		border-bottom: 3px solid;
+	}
+
+	h5.title-heading-left {
+		border-bottom: 2px solid;
+	}
+
+	h6.title-heading-left {
+		border-bottom: 2px solid;
+	}
+
+}
+
+#main .post h2 {
+	/* @extend %avalon_demi;
+	font-size: 22px !important;
+  	line-height: 1 !important; */
+}
+
+.fusion-recent-posts {
+	margin-bottom: 0;
+
+	.columns .column h4 {
+		font-size: 16px;
+		@extend %avalon_boldcondensed;
+	}
+}
+
+.fusion-flip-boxes.blockquote {
+	.fusion-flip-box {
+		.flip-box-front {
+			.flip-box-heading {
+				&:before { content: "\0022"; }
+				&:after { content: "\0022"; }
+			}
+		}
+	}
+}
+
+.fusion-flip-boxes.no-margin-top {
+	margin-top: -15px; //maintains spacing between flip box rows, but makes the shortcode sit flush with the top of its container
+}
+
+.fusion-flip-boxes.ct-flipboxes {
+	//margin-top: 25px;
+
+	.fusion-flip-box {
+		.flip-box-front,
+		.flip-box-back {
+			background-color: $ct_trans_blue !important;
+			@extend %noradius;
+			padding-left: 38px;
+			padding-right: 38px;
+		}
+
+		.flip-box-front {
+			.flip-box-front-inner {
+				.flip-box-grafix {
+					img {
+						height: auto;
+						width: 90px;
+					}
+				}
+			}
+
+			.flip-box-heading {
+				//@extend %avalon_boldcondensed;
+				@extend %avalon_demicondensed;
+				@extend %uppercase;
+				font-size: 21px !important;
+				border-top: 5px solid $ct_white;
+				border-bottom: 5px solid $ct_white;
+				padding: 8px 0;
+				letter-spacing: 1px;
+				line-height: 20px !important;
+			}
+		}
+
+		.flip-box-inner-wrapper {
+			margin-top: 15px;
+		}
+
+		.flip-box-back {
+			text-align: left;
+
+			ul {
+				padding-left: 20px;
+			}
+
+			.fusion-button {
+				display: inline-block;
+			}
+
+			.flip-box-back-inner {
+				// this is being handled with the button shortcode now
+				/*a {
+					display: inline-block;
+					background: $ct_darker_blue;
+					width: auto;
+					margin: 0 auto;
+					padding: 2px 12px;
+					margin-top: 0px;
+					@extend %avalon_demi;
+					font-size: 14px !important;
+					color: $ct_white;
+				}*/
+			}
+
+			.flip-box-heading-back {
+				text-align: center;
+				@extend %avalon_demi;
+				font-size: 16px !important;
+				text-transform: initial;
+			}
+		}
+	}
+}
+
+
+.fusion-title {
+	&.white {
+		h1, h2, h3, h4, h5, h6 {
+			color: $ct_white !important;
+		}
+	}	
+
+	&.center {
+		//text-align: center !important;
+	}
+
+	&.no-border {
+		h1, h2, h3, h4, h5, h6 {
+			@extend %noborder;
+		}
+	}
+}
+
+/*****************************************
+*
+*              Gravity-forms
+*
+*****************************************/
+
+// request a call specific
+.request-a-call {
+	.gform_wrapper .gsection .gfield_label, 
+	.gform_wrapper h2.gsection_title, 
+	.gform_wrapper h3.gform_title {
+		font-size: 20px;
+	}
+
+
+	.gform_wrapper {
+		.h3.gform_title {
+			margin-top: 0.4em;
+		}
+
+		background: $ct_trans_blue;
+		padding: 30px;
+	}
+}
+
+// everything else
+.gform_wrapper {
+	max-width: 100% !important;
+	margin-top: 0 !important;
+
+	.top_label .gfield_label {
+		@extend %hide;
+	}
+
+	.gfield_date_day label, 
+	.gfield_date_month label, 
+	.gfield_date_year label, 
+	.gfield_time_ampm label, 
+	.gfield_time_hour label, 
+	.gfield_time_minute label, 
+	.ginput_complex label, 
+	.instruction {
+		@extend %hide;
+	}
+
+	h3.gform_title {
+		text-transform: uppercase;
+		color: $ct_white;
+		font-size: 20px;
+		border-top: 3px solid;
+		border-bottom: 3px solid;
+		padding: 10px 0;
+		margin: 0;
+	}
+q
+	ul li.gfield {
+		margin-bottom: 9px;
+	}
+
+	.gform_footer {
+		margin: 0 !important;
+		padding: 0 !important;
+	}
+
+	.gform_button {	
+		@extend %noradius;
+		@extend %noborder;
+		@extend %uppercase;
+		margin: 0 !important;
+		font-weight: 700;
+		width: 100%;
+		background-image: none !important;
+		background: none !important;
+		background-color: $ct_red !important;
+		padding: 10px 0 !important;
+		color: $ct_white !important;
+		//@extend %avalon_book;
+		@extend %avalon_medium;
+
+		&:hover {
+			background: $ct_mid_blue !important;
+		}
+	}
+
+	.hidden_label input.large, 
+	.hidden_label select.large, 
+	.top_label input.large, 
+	.top_label select.large,
+	.gform_heading {
+		width: 100% !important;
+	}
+
+	.gform_heading {
+		margin-bottom: 15px !important;
+	}
+
+	.gfield input[type=text],
+	.gfield input[type=email],
+	.gfield input[type=tel],
+	.gfield input[type=url],
+	.gfield input[type=number],
+	.gfield input[type=password] input[type="number"], 
+	input[type="password"],
+	.gfield textarea,
+	.gravity-select-parent select {
+		@extend %noborder;
+		@extend %avalon_book;
+		color: $ct_dark_blue !important;
+
+	}
+}
+
+//wat... http://stackoverflow.com/a/2610741
+::-webkit-input-placeholder {
+	color: $ct_dark_blue !important;
+	@extend %avalon_book;
+}
+
+:-moz-placeholder {
+	color: $ct_dark_blue !important;
+}
+
+::-moz-placeholder {
+	color: $ct_dark_blue !important;
+}
+
+:-ms-input-placeholder {
+	color: $ct_dark_blue !important;
+}
+
+body .gform_wrapper label.gfield_label+div.ginput_container {
+	margin-top: 0;
+}
+
+
+/*****************************************
+*
+*                   Footer
+*
+*****************************************/
+
+.fusion-footer-widget-area,
+#slidingbar-area {
+	h3 {
+		@extend %avalon_boldcondensed;
+		font-size: 16px !important;
+	}
+}
+
+.fusion-footer-widget-area .widget_recent_entries li,
+.fusion-footer-widget-area ul li a {
+	border-color: #7793aa !important;
+}
+
+<<<<<<< HEAD
+#toTop {
+	@extend %noradius;
+	background-color: $ct_mid_blue !important;
+
+	&:hover {
+		background: $ct_light_blue !important;
+	}
+=======
+.myfusion{
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 10000;
+	background-color:#11375d !important;
+	
+}
+
+.fusion-sticky-shadow{
+	top: 44px !important;
+}
+
+.topad{
+	padding-top: 100px;
+>>>>>>> 37744b6e5cb96ade4e749268e747b7e8f2ac4230
+}
