@@ -626,3 +626,20 @@ body .gform_wrapper label.gfield_label+div.ginput_container {
 .fusion-footer-widget-area ul li a {
 	border-color: #7793aa !important;
 }
+
+.myfusion{
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 10000;
+	background-color:#11375d !important;
+	
+}
+
+.fusion-sticky-shadow{
+	top: 44px !important;
+}
+
+.topad{
+	padding-top: 100px;
+}
