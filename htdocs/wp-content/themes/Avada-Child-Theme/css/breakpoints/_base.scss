@@ -14,6 +14,7 @@
 	height: 65px;
 	padding-top: 19px;
 
+
 	span {
 		display: block;
 	}
@@ -35,7 +36,7 @@
 	.fusion-main-menu > ul > li > a {
 		padding-top: 0 !important;
 		color: $ct_dark_blue !important;
-		
+
 		span.top-menu {
 			padding: 13px 0 2px 0;
 			font-size: 1.3em;
@@ -55,9 +56,9 @@
 	background-color: transparent !important;
 }
 
-.fusion-header-v2 .fusion-header, 
-.fusion-header-v3 .fusion-header, 
-.fusion-header-v4 .fusion-header, 
+.fusion-header-v2 .fusion-header,
+.fusion-header-v3 .fusion-header,
+.fusion-header-v4 .fusion-header,
 .fusion-header-v5 .fusion-header {
 	@extend %noborder;
 }
@@ -77,10 +78,10 @@
 
 	/*border-top: 1px solid white !important;
 	background-color: $ct_mid_blue_trans !important;
-	
+
 	li a:hover {
-		background-color: rgba(255,255,255,0.2) !important;		
-	}*/
+		background-color: rgba(255,255,255,0.2) !important;
+	}*/	
 }
 
 
@@ -115,7 +116,7 @@
 			margin-left: 40px;
 
 			strong {
-				@extend %avalon_boldcondensed;	
+				@extend %avalon_boldcondensed;
 				color: $ct_mid_blue !important;
 				font-size: 15px;
 			}
@@ -130,7 +131,7 @@
 		}
 
 		.fusion-toggle-heading {
-			@extend %avalon_boldcondensed;	
+			@extend %avalon_boldcondensed;
 			color: $ct_dark_blue !important;
 			font-size: 15px;
 			@extend %uppercase;
@@ -145,7 +146,7 @@
 
 	.fusion-button.woo-button {
 		border-width: 0px;
-		color: #ffffff; 
+		color: #ffffff;
 		border-color: #ffffff;
 		background: #f31700;
 
@@ -190,12 +191,12 @@
 			td.product-quote p {
 				@extend %avalon_boldcondensed;
 				color: $ct_dark_blue;
-				font-size: 17px;				
+				font-size: 17px;
 			}
 		}
 	}
-	
-	
+
+
 	/*
 	.content-boxes {
 		.content-container {
@@ -238,35 +239,35 @@
 	width: 30% !important;
 }
 
-body, 
-#nav ul li ul li a, 
-#sticky-nav ul li ul li a, 
-.more, 
-.avada-container h3, 
-.meta .fusion-date, 
-.review blockquote q, 
-.review blockquote div strong, 
-.project-content .project-info h4, 
-.post-content blockquote, 
-.fusion-load-more-button, 
-.ei-title h3, 
-.comment-form input[type="submit"], 
-.wpcf7-form input[type="submit"], 
-.gform_wrapper .gform_button, 
-.woocommerce-success-message .button, 
-.woocommerce .single_add_to_cart_button, 
-.woocommerce button.button, 
-.woocommerce .shipping-calculator-form .button, 
-.woocommerce .checkout #place_order, 
-.woocommerce .checkout_coupon .button, 
-.woocommerce .login .button, 
-.woocommerce .register .button, 
-.fusion-page-title-bar h3, 
-.fusion-blog-shortcode .fusion-timeline-date, 
-#reviews #comments > h2, 
-.fusion-image-wrapper .fusion-rollover .fusion-rollover-content .fusion-rollover-title, 
-.fusion-image-wrapper .fusion-rollover .fusion-rollover-content .fusion-rollover-categories, 
-.fusion-image-wrapper .fusion-rollover .fusion-rollover-content a, 
+body,
+#nav ul li ul li a,
+#sticky-nav ul li ul li a,
+.more,
+.avada-container h3,
+.meta .fusion-date,
+.review blockquote q,
+.review blockquote div strong,
+.project-content .project-info h4,
+.post-content blockquote,
+.fusion-load-more-button,
+.ei-title h3,
+.comment-form input[type="submit"],
+.wpcf7-form input[type="submit"],
+.gform_wrapper .gform_button,
+.woocommerce-success-message .button,
+.woocommerce .single_add_to_cart_button,
+.woocommerce button.button,
+.woocommerce .shipping-calculator-form .button,
+.woocommerce .checkout #place_order,
+.woocommerce .checkout_coupon .button,
+.woocommerce .login .button,
+.woocommerce .register .button,
+.fusion-page-title-bar h3,
+.fusion-blog-shortcode .fusion-timeline-date,
+#reviews #comments > h2,
+.fusion-image-wrapper .fusion-rollover .fusion-rollover-content .fusion-rollover-title,
+.fusion-image-wrapper .fusion-rollover .fusion-rollover-content .fusion-rollover-categories,
+.fusion-image-wrapper .fusion-rollover .fusion-rollover-content a,
 .fusion-image-wrapper .fusion-rollover .fusion-rollover-content .price,
 #wrapper #nav ul li ul li > a,
 #wrapper #sticky-nav ul li ul li > a,
@@ -325,11 +326,11 @@ body,
 		}
 	}
 
-	h1.title-heading-left, 
-	h2.title-heading-left, 
-	h3.title-heading-left, 
-	h4.title-heading-left, 
-	h5.title-heading-left, 
+	h1.title-heading-left,
+	h2.title-heading-left,
+	h3.title-heading-left,
+	h4.title-heading-left,
+	h5.title-heading-left,
 	h6.title-heading-left {
 		@extend %uppercase;
 		@extend %avalon_bold;
@@ -475,7 +476,7 @@ body,
 		h1, h2, h3, h4, h5, h6 {
 			color: $ct_white !important;
 		}
-	}	
+	}
 
 	&.center {
 		//text-align: center !important;
@@ -496,8 +497,8 @@ body,
 
 // request a call specific
 .request-a-call {
-	.gform_wrapper .gsection .gfield_label, 
-	.gform_wrapper h2.gsection_title, 
+	.gform_wrapper .gsection .gfield_label,
+	.gform_wrapper h2.gsection_title,
 	.gform_wrapper h3.gform_title {
 		font-size: 20px;
 	}
@@ -522,13 +523,13 @@ body,
 		@extend %hide;
 	}
 
-	.gfield_date_day label, 
-	.gfield_date_month label, 
-	.gfield_date_year label, 
-	.gfield_time_ampm label, 
-	.gfield_time_hour label, 
-	.gfield_time_minute label, 
-	.ginput_complex label, 
+	.gfield_date_day label,
+	.gfield_date_month label,
+	.gfield_date_year label,
+	.gfield_time_ampm label,
+	.gfield_time_hour label,
+	.gfield_time_minute label,
+	.ginput_complex label,
 	.instruction {
 		@extend %hide;
 	}
@@ -552,7 +553,7 @@ q
 		padding: 0 !important;
 	}
 
-	.gform_button {	
+	.gform_button {
 		@extend %noradius;
 		@extend %noborder;
 		@extend %uppercase;
@@ -572,9 +573,9 @@ q
 		}
 	}
 
-	.hidden_label input.large, 
-	.hidden_label select.large, 
-	.top_label input.large, 
+	.hidden_label input.large,
+	.hidden_label select.large,
+	.top_label input.large,
 	.top_label select.large,
 	.gform_heading {
 		width: 100% !important;
@@ -589,7 +590,7 @@ q
 	.gfield input[type=tel],
 	.gfield input[type=url],
 	.gfield input[type=number],
-	.gfield input[type=password] input[type="number"], 
+	.gfield input[type=password] input[type="number"],
 	input[type="password"],
 	.gfield textarea,
 	.gravity-select-parent select {
@@ -657,7 +658,7 @@ body .gform_wrapper label.gfield_label+div.ginput_container {
 	width: 100%;
 	z-index: 10000;
 	background-color:#11375d !important;
-	
+
 }
 
 .fusion-sticky-shadow{

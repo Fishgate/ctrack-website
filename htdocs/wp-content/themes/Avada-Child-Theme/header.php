@@ -190,6 +190,14 @@
 		}
 		
 		</style>
+	<?php }else{ ?>
+
+		<style>
+			.myfusion {
+				background-color: white !important;
+			}
+
+		</style>
 	<?php } ?>
 
 </head>
