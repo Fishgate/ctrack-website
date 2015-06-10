@@ -4,21 +4,21 @@
 *
 *****************************************/
 
-
-
 // menu items before scroll (sticky)
 
-.fusion-main-menu .current_page_item > a,
-.fusion-main-menu .current-menu-item > a,
-.fusion-main-menu .current-menu-parent > a,
-.fusion-main-menu .current-menu-ancestor > a {
-	//color: red !important;
-	background-color: $ct_mid_blue_more_trans;
-
-	span.bottom-menu {
-		//border-color: $ct_mid_blue;
+.fusion-main-menu,
+.fusion-secondary-menu {
+	.current_page_item,
+	.current-menu-item,
+	.current-menu-parent,
+	.current-menu-ancestor
+	{
+		&> a {
+			@extend %avalon_bold;
+		}
 	}
 }
+
 
 .fusion-main-menu > ul > li > a {
 	-webkit-transition: all 0.3s ease;
@@ -27,8 +27,7 @@
 	text-align: center;
 	line-height: 1 !important;
 	height: 65px;
-	padding: 19px 10px 0 10px;
-
+	padding: 19px 0 0 0;
 
 	span {
 		display: block;
@@ -44,10 +43,16 @@
 		border-top: 2px solid;
 		padding-top: 5px;
 	}
+
+	@extend %avalon_medium;
+
+	&:hover {
+		//@extend %avalon_bold;
+	}
 }
 
 .fusion-main-menu > ul > li {
-	padding-right: 17px;
+	//padding-right: 17px;
 }
 
 // menu items after scroll (sticky)
@@ -109,6 +114,12 @@
 *                  Body
 *
 *****************************************/
+
+.fusion-button.icon-quote {
+	background-image: url('../images/ui/quote.png') !important;
+	background-repeat: no-repeat !important;
+	background-position: 56px 8px !important;
+}
 
 .fusion-post-content {
 	.fusion-content-sep {
@@ -581,25 +592,34 @@ q
 		padding: 0 !important;
 	}
 
+	.gform_footer {
+		&:before {
+			//content: url('../images/ui/call.png');
+		}
+	}
+
 	.gform_button {
 		@extend %noradius;
 		@extend %noborder;
 		@extend %uppercase;
+		@extend %avalon_medium;
 		margin: 0 !important;
 		font-weight: 700;
 		width: 100%;
-		background-image: none !important;
-		background: none !important;
-		background-color: $ct_red !important;
+		//background-image: none !important;
+		//background: none !important;
 		padding: 10px 0 !important;
 		color: $ct_white !important;
-		//@extend %avalon_book;
-		@extend %avalon_medium;
+		//background-color: $ct_red !important;
+
+		background: $ct_red url('../images/ui/call.png') no-repeat 20px 5px !important;
 
 		&:hover {
-			background: $ct_mid_blue !important;
+			background: $ct_mid_blue url('../images/ui/call.png') no-repeat 20px 5px !important;
 		}
 	}
+
+
 
 	.hidden_label input.large,
 	.hidden_label select.large,

@@ -19,7 +19,7 @@ function fg_enqueue(){
     wp_enqueue_style('fg-styles');
 
     wp_register_script('fg-scripts', get_stylesheet_directory_uri() . '/js/scripts.min.js', array(), '1.0', true);
-    wp_enqueue_script('fg-scripts');    
+    wp_enqueue_script('fg-scripts');
 }
 add_action('wp_print_styles', 'fg_enqueue');
 

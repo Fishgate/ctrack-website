@@ -11,7 +11,7 @@ class FusionSC_RecentPosts {
 
 		add_filter( 'fusion_attr_recentposts-shortcode', array( $this, 'attr' ) );
 		add_filter( 'fusion_attr_recentposts-shortcode-section', array( $this, 'section_attr' ) );
-		add_filter( 'fusion_attr_recentposts-shortcode-column', array( $this, 'column_attr' ) );		
+		add_filter( 'fusion_attr_recentposts-shortcode-column', array( $this, 'column_attr' ) );
 		add_filter( 'fusion_attr_recentposts-shortcode-slideshow', array( $this, 'slideshow_attr' ) );
 		add_filter( 'fusion_attr_recentposts-shortcode-img', array( $this, 'img_attr' ) );
 
@@ -46,31 +46,31 @@ class FusionSC_RecentPosts {
 				'strip_html' 			=> 'yes',
 				'title'					=> 'yes',
 				'thumbnail'				=> 'yes',
-				
+
 				'animation_direction' 	=> 'left',
 				'animation_speed' 		=> '',
 				'animation_type' 		=> '',
 			), $args
 		);
-		
+
 		if( $defaults['columns'] > 6 ) {
 			$defaults['columns'] = 6;
-		}		
+		}
 
 		( $defaults['strip_html'] == 'yes' || $defaults['strip_html'] == 'true' ) ? ( $defaults['strip_html'] = true ) : ( $defaults['strip_html'] = false );
-	
+
 		if( $defaults['number_posts'] ) {
 			$defaults['posts_per_page'] = $defaults['number_posts'];
 		}
-		
-		if( $defaults['excerpt_length'] || 
-			$defaults['excerpt_length'] === '0' 
+
+		if( $defaults['excerpt_length'] ||
+			$defaults['excerpt_length'] === '0'
 		) {
 			$defaults['excerpt_words'] = $defaults['excerpt_length'];
-		}		
-	
+		}
+
 		//check for cats to exclude; needs to be checked via exclude_cats param and '-' prefixed cats on cats param
-		//exclution via exclude_cats param 
+		//exclution via exclude_cats param
 		$cats_to_exclude = explode( ',' , $defaults['exclude_cats'] );
 		if( $cats_to_exclude ) {
 			foreach( $cats_to_exclude as $cat_to_exclude ) {
@@ -101,8 +101,8 @@ class FusionSC_RecentPosts {
 				}
 			}
 		}
-		$defaults['cat'] = substr( $cat_ids, 0, -1 );	
-		
+		$defaults['cat'] = substr( $cat_ids, 0, -1 );
+
 		$defaults['cat'] .= $defaults['cat_id'];
 
 		$items = '';
@@ -111,7 +111,7 @@ class FusionSC_RecentPosts {
 			'posts_per_page' => $defaults['number_posts'],
 			'ignore_sticky_posts' => 1
 		);
-		
+
 		if ( $defaults['offset'] ) {
 			$args['offset'] =  $defaults['offset'];
 		}
@@ -119,26 +119,26 @@ class FusionSC_RecentPosts {
 		if( $defaults['cat'] ) {
 			$args['cat'] = $defaults['cat'];
 		}
-		
+
 		if( isset( $defaults['category__not_in'] ) && is_array( $defaults['category__not_in'] ) ) {
 			$args['category__not_in'] = $defaults['category__not_in'];
 		}
 
 		extract( $defaults );
 
-		self::$args = $defaults;		
+		self::$args = $defaults;
 
 		$recent_posts = new WP_Query( $args );
-		
+
 		$count = 1;
-		
+
 		while( $recent_posts->have_posts() ) {
 			$recent_posts->the_post();
 
 			$attachment = $date_box = $slideshow = $slides = $content = '';
-			
+
 			if( $layout == 'date-on-side' ) {
-				
+
 				switch( get_post_format() ) {
 					case 'gallery':
 						$format_class = 'images';
@@ -164,27 +164,27 @@ class FusionSC_RecentPosts {
 					default:
 						$format_class = 'pen';
 						break;
-				}				
+				}
 
-				$date_box = sprintf( '<div %s><div %s><span %s>%s</span><span %s>%s</span></div><div %s><i %s></i></div></div>', FusionCore_Plugin::attributes( 'fusion-date-and-formats' ), 
-									 FusionCore_Plugin::attributes( 'fusion-date-box updated' ), FusionCore_Plugin::attributes( 'fusion-date' ), get_the_time( $smof_data['alternate_date_format_day'] ), 
-									 FusionCore_Plugin::attributes( 'fusion-month-year' ), get_the_time( $smof_data['alternate_date_format_month_year'] ), FusionCore_Plugin::attributes( 'fusion-format-box' ), 
+				$date_box = sprintf( '<div %s><div %s><span %s>%s</span><span %s>%s</span></div><div %s><i %s></i></div></div>', FusionCore_Plugin::attributes( 'fusion-date-and-formats' ),
+									 FusionCore_Plugin::attributes( 'fusion-date-box updated' ), FusionCore_Plugin::attributes( 'fusion-date' ), get_the_time( $smof_data['alternate_date_format_day'] ),
+									 FusionCore_Plugin::attributes( 'fusion-month-year' ), get_the_time( $smof_data['alternate_date_format_month_year'] ), FusionCore_Plugin::attributes( 'fusion-format-box' ),
 							 		 FusionCore_Plugin::attributes( 'fusion-icon-' . $format_class ) );
 			}
-							  
+
 			if( $thumbnail == 'yes' &&
 				$layout != 'date-on-side' &&
 				! post_password_required( get_the_ID() )
 			) {
-				
+
 				if( $layout == 'default' ) {
 					$image_size = 'recent-posts';
 				} elseif( $layout == 'thumbnails-on-side' ) {
 					$image_size = 'portfolio-five';
 				}
-			
-				if( has_post_thumbnail() || 
-					get_post_meta(get_the_ID(), 'pyre_video', true) 
+
+				if( has_post_thumbnail() ||
+					get_post_meta(get_the_ID(), 'pyre_video', true)
 				) {
 					if( get_post_meta( get_the_ID(), 'pyre_video', true ) ) {
 						$slides .= sprintf( '<li><div %s>%s</div></li>', FusionCore_Plugin::attributes( 'full-video' ), get_post_meta(get_the_ID(), 'pyre_video', true) );
@@ -196,7 +196,7 @@ class FusionSC_RecentPosts {
 						$attachment_data = wp_get_attachment_metadata( get_post_thumbnail_id() );
 						$attachment = get_post(get_post_thumbnail_id());
 
-						$slides .= sprintf( '<li><a href="%s"><img %s/></a></li>', get_permalink( get_the_ID() ),  
+						$slides .= sprintf( '<li><a href="%s"><img %s/></a></li>', get_permalink( get_the_ID() ),
 											FusionCore_Plugin::attributes( 'recentposts-shortcode-img', array( 'src' => $attachment_image[0], 'alt' => $attachment->post_title ) ) ) ;
 					}
 
@@ -208,10 +208,10 @@ class FusionSC_RecentPosts {
 							$full_image = wp_get_attachment_image_src( $attachment_new_id, 'full' );
 							$attachment_data = wp_get_attachment_metadata( $attachment_new_id );
 
-							$slides .= sprintf( '<li><a href="%s"><img %s/></a></li>', get_permalink( get_the_ID() ),  
-											FusionCore_Plugin::attributes( 'recentposts-shortcode-img', array( 'src' => $attachment_image[0], 'alt' => '' ) ) ) ;									
+							$slides .= sprintf( '<li><a href="%s"><img %s/></a></li>', get_permalink( get_the_ID() ),
+											FusionCore_Plugin::attributes( 'recentposts-shortcode-img', array( 'src' => $attachment_image[0], 'alt' => '' ) ) ) ;
 						}
-						$i++; 
+						$i++;
 					}
 
 					$slideshow = sprintf( '<div %s><ul %s>%s</ul></div>', FusionCore_Plugin::attributes( 'recentposts-shortcode-slideshow' ), FusionCore_Plugin::attributes( 'slides' ), $slides );
@@ -235,33 +235,35 @@ class FusionSC_RecentPosts {
 				ob_start();
 				comments_popup_link( __( '0 Comments', 'fusion-core' ), __( '1 Comment', 'fusion-core' ), '% ' . __( 'Comments', 'fusion-core' ) );
 				$comments_link = ob_get_contents();
-				ob_get_clean();				
-				
-				$comments = sprintf( '<span %s>|</span><span>%s</span>', FusionCore_Plugin::attributes( 'meta-separator' ), $comments_link );	
+				ob_get_clean();
 
-				$content .= sprintf( '<p %s><span><span %s>%s</span></span>%s</p>', FusionCore_Plugin::attributes( 'meta' ), FusionCore_Plugin::attributes( 'date' ), 
+				$comments = sprintf( '<span %s>|</span><span>%s</span>', FusionCore_Plugin::attributes( 'meta-separator' ), $comments_link );
+
+				$content .= sprintf( '<p %s><span><span %s>%s</span></span>%s</p>', FusionCore_Plugin::attributes( 'meta' ), FusionCore_Plugin::attributes( 'date' ),
 									 get_the_time( $smof_data['date_format'], get_the_ID() ), $comments);
 
 			}
 
-			if( $excerpt == 'yes' ) {		
+			if( $excerpt == 'yes' ) {
 				$content .= fusion_get_post_content( '', 'yes', $excerpt_words, $strip_html );
+				$content .= "&hellip;";
+			  $content .= sprintf('&nbsp;<a href="%s">Read More</a>', get_permalink(get_the_ID()));
 			}
-						
+
 			if( $count == self::$args['columns'] ) {
 				$count = 0;
-				$items .= sprintf( '<div %s>%s%s<div %s>%s</div></div><div class="fusion-clearfix"></div>', FusionCore_Plugin::attributes( 'recentposts-shortcode-column' ), $date_box, $slideshow, 
+				$items .= sprintf( '<div %s>%s%s<div %s>%s</div></div><div class="fusion-clearfix"></div>', FusionCore_Plugin::attributes( 'recentposts-shortcode-column' ), $date_box, $slideshow,
 							   FusionCore_Plugin::attributes( 'recent-posts-content' ), $content );
 			} else {
-				$items .= sprintf( '<div %s>%s%s<div %s>%s</div></div>', FusionCore_Plugin::attributes( 'recentposts-shortcode-column' ), $date_box, $slideshow, 
+				$items .= sprintf( '<div %s>%s%s<div %s>%s</div></div>', FusionCore_Plugin::attributes( 'recentposts-shortcode-column' ), $date_box, $slideshow,
 							   FusionCore_Plugin::attributes( 'recent-posts-content' ), $content );
 			}
 
 			$count++;
-			
+
 		}
-	
-		$html = sprintf( '<div %s><section %s>%s</section></div>', FusionCore_Plugin::attributes( 'recentposts-shortcode' ), 
+
+		$html = sprintf( '<div %s><section %s>%s</section></div>', FusionCore_Plugin::attributes( 'recentposts-shortcode' ),
 					  FusionCore_Plugin::attributes( 'recentposts-shortcode-section' ), $items );
 
 		wp_reset_query();
@@ -291,14 +293,14 @@ class FusionSC_RecentPosts {
 				'speed'	 => self::$args['animation_speed'],
 			) );
 
-			$attr = array_merge( $attr, $animations );	
-			unset($attr['animation_class']);		 
+			$attr = array_merge( $attr, $animations );
+			unset($attr['animation_class']);
 		}
 
 		return $attr;
 
 	}
-	
+
 	function section_attr() {
 
 		$attr = array();
@@ -308,27 +310,27 @@ class FusionSC_RecentPosts {
 		return $attr;
 
 	}
-	
+
 	function column_attr() {
 
 		$attr = array();
-		
+
 		if( self::$args['columns'] ) {
 			$columns = 12 / self::$args['columns'];
 		} else {
 			$columns = 3;
 		}
-		
+
 		$attr['class'] = sprintf( 'fusion-column column col col-lg-%s col-md-%s col-sm-%s', $columns, $columns, $columns );
-		
+
 		if( self::$args['columns'] == '5'  ) {
 			$attr['class'] = 'fusion-column column col-lg-2 col-md-2 col-sm-2';
-		}		
+		}
 
 		return $attr;
 
-	}	
-	
+	}
+
 	function slideshow_attr() {
 
 		$attr = array();
@@ -347,15 +349,15 @@ class FusionSC_RecentPosts {
 			) );
 
 			$attr = array_merge( $attr, $animations );
-			
+
 			$attr['class'] .= ' ' . $attr['animation_class'];
 			unset($attr['animation_class']);
 		}
-		
+
 		return $attr;
 
-	} 
-	
+	}
+
 	function img_attr( $args ) {
 
 		$attr = array();
@@ -368,7 +370,7 @@ class FusionSC_RecentPosts {
 
 		return $attr;
 
-	}	
+	}
 }
 
 new FusionSC_RecentPosts();
