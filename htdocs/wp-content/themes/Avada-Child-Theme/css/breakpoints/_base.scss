@@ -116,7 +116,7 @@
 *****************************************/
 
 .fusion-button.icon-quote {
-	background-image: url('../images/ui/quote.png') !important;
+	background-image: url('../images/ui/quote20.png') !important;
 	background-repeat: no-repeat !important;
 	background-position: 56px 8px !important;
 }
@@ -135,6 +135,12 @@
 .fusion-accordian {
 	.panel-body {
 		padding-bottom: 0;
+		padding-top: 0 !important;
+		margin-top: -7px !important;
+
+		p {
+			margin-bottom: 9px !important;
+		}
 	}
 
 	.fusion-panel {
@@ -433,8 +439,8 @@ body,
 		.flip-box-back {
 			background-color: $ct_trans_blue !important;
 			@extend %noradius;
-			padding-left: 30px;
-			padding-right: 30px;
+			padding-left: 25px;
+			padding-right: 25px;
 		}
 
 		.flip-box-front {
@@ -489,12 +495,16 @@ body,
 					font-size: 14px !important;
 					color: $ct_white;
 				}*/
+
+				@extend %avalon_demi;
+				//font-size: 16px !important;
+				font-size: 13px !important;
+				text-transform: initial;
+				line-height: 15px;
 			}
 
 			.flip-box-heading-back {
 				text-align: center;
-				@extend %avalon_demi;
-				//font-size: 16px !important;
 				font-size: 13px !important;
 				text-transform: initial;
 				line-height: 15px;
@@ -606,16 +616,16 @@ q
 		margin: 0 !important;
 		font-weight: 700;
 		width: 100%;
-		//background-image: none !important;
-		//background: none !important;
+		background-image: none !important;
+		background: none !important;
 		padding: 10px 0 !important;
 		color: $ct_white !important;
-		//background-color: $ct_red !important;
+		background-color: $ct_red !important;
 
-		background: $ct_red url('../images/ui/call.png') no-repeat 20px 5px !important;
+		//background: $ct_red url('../images/ui/call20.png') no-repeat 20px 7px !important;
 
 		&:hover {
-			background: $ct_mid_blue url('../images/ui/call.png') no-repeat 20px 5px !important;
+			//background: $ct_mid_blue url('../images/ui/call20.png') no-repeat 20px 7px !important;
 		}
 	}
 
