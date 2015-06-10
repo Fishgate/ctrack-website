@@ -4,7 +4,22 @@
 *
 *****************************************/
 
+
+
 // menu items before scroll (sticky)
+
+.fusion-main-menu .current_page_item > a,
+.fusion-main-menu .current-menu-item > a,
+.fusion-main-menu .current-menu-parent > a,
+.fusion-main-menu .current-menu-ancestor > a {
+	//color: red !important;
+	background-color: $ct_mid_blue_more_trans;
+
+	span.bottom-menu {
+		//border-color: $ct_mid_blue;
+	}
+}
+
 .fusion-main-menu > ul > li > a {
 	-webkit-transition: all 0.3s ease;
 	        transition: all 0.3s ease;
@@ -12,7 +27,7 @@
 	text-align: center;
 	line-height: 1 !important;
 	height: 65px;
-	padding-top: 19px;
+	padding: 19px 10px 0 10px;
 
 
 	span {
@@ -29,6 +44,10 @@
 		border-top: 2px solid;
 		padding-top: 5px;
 	}
+}
+
+.fusion-main-menu > ul > li {
+	padding-right: 17px;
 }
 
 // menu items after scroll (sticky)
@@ -81,7 +100,7 @@
 
 	li a:hover {
 		background-color: rgba(255,255,255,0.2) !important;
-	}*/	
+	}*/
 }
 
 
@@ -403,16 +422,16 @@ body,
 		.flip-box-back {
 			background-color: $ct_trans_blue !important;
 			@extend %noradius;
-			padding-left: 38px;
-			padding-right: 38px;
+			padding-left: 30px;
+			padding-right: 30px;
 		}
 
 		.flip-box-front {
 			.flip-box-front-inner {
 				.flip-box-grafix {
 					img {
-						height: auto;
-						width: 90px;
+						/*height: auto;
+						width: 90px;*/
 					}
 				}
 			}
@@ -443,6 +462,7 @@ body,
 
 			.fusion-button {
 				display: inline-block;
+				margin-top: 0;
 			}
 
 			.flip-box-back-inner {
@@ -463,8 +483,10 @@ body,
 			.flip-box-heading-back {
 				text-align: center;
 				@extend %avalon_demi;
-				font-size: 16px !important;
+				//font-size: 16px !important;
+				font-size: 13px !important;
 				text-transform: initial;
+				line-height: 15px;
 			}
 		}
 	}
@@ -496,6 +518,12 @@ body,
 *****************************************/
 
 // request a call specific
+
+.select-arrow, .select2-arrow {
+	color: $ct_dark_blue !important;
+	font-weight: bold;
+}
+
 .request-a-call {
 	.gform_wrapper .gsection .gfield_label,
 	.gform_wrapper h2.gsection_title,
