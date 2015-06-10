@@ -7,8 +7,10 @@ function ct_woo_product_func( $atts ) {
 		'id' => 0
 	), $atts, 'ct_woo_product' );
 
+	
+
 	if(class_exists(WC_Product)) {
-		$product = new WC_Product($atts['id']);		
+		$product = new WC_Product($atts['id']);
 
 		$title 			= $product->get_title();
 		$features_img 	= $product->get_image();
@@ -38,7 +40,7 @@ function ct_woo_product_func( $atts ) {
 					<td class="product-img" rowspan="2" valign="middle"><?php echo $features_img; ?></td>
 					<td class="product-price" valign="middle"><h2><?php echo $currency.$monthly_price; ?>*<small>monthly</small></h2></td>
 				</tr>
-				
+
 				<tr>
 					<td class="product-quote" valign="middle"><p>&quot;<?php echo $quote; ?>&quot;</p></td>
 				</tr>
@@ -68,7 +70,7 @@ function ct_woo_product_func( $atts ) {
 	}else{
 		return 'Please enable WooCommerce to use this shortcode.';
 	}
-	
+
 }
 add_shortcode( 'ct_woo_product', 'ct_woo_product_func' );
 
@@ -79,7 +81,7 @@ function ct_product_icon_box($atts) {
 		'price' => '#',
 		'quote' =>	'#'
 	), $atts, 'ct_product_icon' );
-	
+
 	ob_start();
 	?>
 
@@ -89,7 +91,7 @@ function ct_product_icon_box($atts) {
 				<td class="product-img" rowspan="2" valign="middle"><img src="<?php echo $atts['icon']; ?>" /></td>
 				<td class="product-price" valign="middle"><h2>R<?php echo $atts['price']; ?>*<small>monthly</small></h2></td>
 			</tr>
-			
+
 			<tr>
 				<td class="product-quote" valign="middle"><p>&quot;<?php echo $atts['quote']; ?>&quot;</p></td>
 			</tr>

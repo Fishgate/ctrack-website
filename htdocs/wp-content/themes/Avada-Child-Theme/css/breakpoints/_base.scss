@@ -431,6 +431,12 @@ body,
 	margin-top: -15px; //maintains spacing between flip box rows, but makes the shortcode sit flush with the top of its container
 }
 
+.fusion-flip-boxes.industry-flipboxes {
+	.fusion-column {
+		height: 240px;
+	}
+}
+
 .fusion-flip-boxes.ct-flipboxes {
 	//margin-top: 25px;
 
@@ -439,8 +445,8 @@ body,
 		.flip-box-back {
 			background-color: $ct_trans_blue !important;
 			@extend %noradius;
-			padding-left: 25px;
-			padding-right: 25px;
+			padding-left: 20px;
+			padding-right: 20px;
 		}
 
 		.flip-box-front {
