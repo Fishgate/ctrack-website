@@ -34,3 +34,16 @@ require_once('includes/shortcodes.php');
  */
 require_once('includes/metaboxes/ct_dark_light_header.php');
 require_once('includes/metaboxes/ct_woocommerce_meta.php');
+
+/**
+ * removes the auto <br> and <p> from nested shortcodes
+ * http://wordpress.stackexchange.com/a/130185
+ */
+
+function the_content_filter($content) {
+    $block = join("|",array("ct_toggle", "ct_accordian"));
+    $rep = preg_replace("/(<p>)?\[($block)(\s[^\]]+)?\](<\/p>|<br \/>)?/","[$2$3]",$content);
+    $rep = preg_replace("/(<p>)?\[\/($block)](<\/p>|<br \/>)?/","[/$2]",$rep);
+	return $rep;
+}
+add_filter("the_content", "the_content_filter");

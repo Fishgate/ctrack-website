@@ -1,11 +1,28 @@
-/*****************************************
-*
-*                Header
-*
-*****************************************/
+/**
+ * General styles
+ */
+
+.left {
+	float: left;
+}
+
+.clearfix:after {
+     visibility: hidden;
+     display: block;
+     font-size: 0;
+     content: " ";
+     clear: both;
+     height: 0;
+     }
+.clearfix { display: inline-block; }
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+
+/**
+ * Header styles
+ */
 
 // menu items before scroll (sticky)
-
 .fusion-main-menu,
 .fusion-secondary-menu {
 	.current_page_item,
@@ -14,7 +31,7 @@
 	.current-menu-ancestor
 	{
 		&> a {
-			@extend %avalon_bold;
+			@extend %avalon_bold;			
 		}
 	}
 }
@@ -114,6 +131,7 @@
 *                  Body
 *
 *****************************************/
+
 
 .fusion-button.icon-quote {
 	background-image: url('../images/ui/quote20.png') !important;
@@ -434,6 +452,39 @@ body,
 .fusion-flip-boxes.industry-flipboxes {
 	.fusion-column {
 		height: 240px;
+	}
+}
+
+.flip-box-front {
+	.flip-box-front-inner {
+		.flip-box-no-circle i {
+			font-size: 40px !important;
+			}
+		}
+	} 
+
+.fusion-flip-boxes.contact-flipbox {
+	.fusion-flip-box {
+		.flip-box-back {
+			 .flip-box-heading-back{
+				text-transform: none !important;
+				font-weight: normal;
+				font-size: 20px;
+			}
+		}
+	}
+}
+
+
+.fusion-flip-boxes.contact-flipbox {
+	.fusion-flip-box {
+		.flip-box-front {
+			.flip-box-heading {
+				font-size: 18px !important;
+				font-weight: bold !important;
+				font-family: avalon_book_macroman, Arial, sans-serif !important;
+			}
+		}
 	}
 }
 
