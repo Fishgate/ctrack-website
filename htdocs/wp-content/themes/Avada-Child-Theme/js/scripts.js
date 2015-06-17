@@ -1,3 +1,7 @@
 jQuery(document).ready(function(){
-	//alert('jquery time?');
+	jQuery('.ct_toggle .ct_toggle_header').each(function(){
+		jQuery(this).click(function(){
+			jQuery(this).next().slideToggle();
+		})
+	});
 });

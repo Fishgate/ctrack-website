@@ -152,13 +152,15 @@ function ct_accordian_toggle_func($atts, $content = "") {
 	ob_start();
 	?>
 
-	<div class="ct_toggle_header clearfix">
-		<div class="left ct_toggle_icon">
-			<img src="<?php echo $atts['icon']; ?>" alt="">
+	<div class="ct_toggle">
+		<div class="ct_toggle_header clearfix">
+			<div class="left ct_toggle_icon">
+				<img src="<?php echo $atts['icon']; ?>" alt="">
+			</div>
+			<div class="left ct_toggle_heading"><?php echo $atts['title']; ?></div>
 		</div>
-		<div class="left ct_toggle_heading"><?php echo $atts['title']; ?></div>
+		<div class="ct_toggle_content hidden"><?php echo $content; ?></div>
 	</div>
-	<div class="ct_toggle_content"><?php echo $content; ?></div>
 
 	<?php
 	$output_buffer = ob_get_contents();

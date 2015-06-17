@@ -6,6 +6,10 @@
 	float: left;
 }
 
+.hidden {
+	display: none;  	
+}
+
 .clearfix:after {
      visibility: hidden;
      display: block;
@@ -131,7 +135,61 @@
 *                  Body
 *
 *****************************************/
+.ct_toggle {
+	.ct_toggle_header {
+		cursor: pointer;
+	}
+}
 
+.bg-blend {
+  background-size: cover; 
+  background-color: #0079c2;
+  background-blend-mode: multiply;
+}
+
+#main .post h2{
+	font-family: avalon_medium_macroman !important;
+	line-height: 1.05em !important;
+	font-size: 20px;
+}
+
+.sidebar .widget h3{
+		font-family: avalon_medium_macroman !important;
+}
+
+.fusion-page-title-bar h1, .fusion-page-title-bar h3{
+		font-family: avalon_medium_macroman !important;
+		font-size: 19px!important;
+}
+
+.fusion-blog-layout-grid .fusion-post-content-wrapper{
+	padding-bottom: 20px;
+}
+
+#gform_wrapper_1{
+  background-blend-mode: multiply !important;
+}
+
+#custom_light_bullet{
+	.fusion-li-item-content{
+		color: #ffffff !important;		
+	}
+}
+
+
+
+#on_dark{
+	.content-box-heading{
+		color: #ffffff !important;
+	}
+}
+
+#ctm_shadow{
+	.content-wrapper-boxed{
+	-webkit-box-shadow: rgba(0, 0, 0, 0.6) 0px 1px 4px -1px;
+  box-shadow: rgba(0, 0, 0, 0.6) 0px 1px 4px -1px;
+  }
+}
 
 .fusion-button.icon-quote {
 	background-image: url('../images/ui/quote20.png') !important;
@@ -772,7 +830,7 @@ body .gform_wrapper label.gfield_label+div.ginput_container {
 	top: 0;
 	width: 100%;
 	z-index: 10000;
-	background-color:#11375d !important;
+	background-color:#fff !important;
 
 }
 
