@@ -102,6 +102,7 @@ class ThreeWP_Broadcast
 		$this->add_filter( 'threewp_broadcast_admin_menu', 'add_post_row_actions_and_hooks', 100 );
 		$this->add_filter( 'threewp_broadcast_broadcast_post' );
 		$this->add_action( 'threewp_broadcast_copy_attachment', 100 );
+		$this->add_action( 'threewp_broadcast_each_linked_post' );
 		$this->add_action( 'threewp_broadcast_get_post_actions' );
 		$this->add_action( 'threewp_broadcast_get_post_bulk_actions' );
 		$this->add_action( 'threewp_broadcast_get_user_writable_blogs', 11 );		// Allow other plugins to do this first.
@@ -149,7 +150,7 @@ class ThreeWP_Broadcast
 			$this->query("CREATE TABLE IF NOT EXISTS `". $this->broadcast_data_table() . "` (
 			  `blog_id` int(11) NOT NULL COMMENT 'Blog ID',
 			  `post_id` int(11) NOT NULL COMMENT 'Post ID',
-			  `data` text NOT NULL COMMENT 'Serialized BroadcastData',
+			  `data` longtext NOT NULL COMMENT 'Serialized BroadcastData',
 			  KEY `blog_id` (`blog_id`,`post_id`)
 			) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 			");
@@ -228,11 +229,29 @@ class ThreeWP_Broadcast
 			$db_ver = 7;
 		}
 
+		if ( $db_ver < 8 )
+		{
+			// Make the table a longtext for those posts with many links.
+			$this->query("ALTER TABLE `". $this->broadcast_data_table() . "` CHANGE `data` `data` LONGTEXT");
+
+			// We have deleted the extra internal custom field setting. If the user does NOT want the fields broadcasted, add them to the blacklist.
+			$internal_fields = $this->get_site_option( 'broadcast_internal_custom_fields', true );
+			if ( $internal_fields == false )
+			{
+				$blacklist = $this->get_site_option( 'custom_field_blacklist' );
+				$blacklist .= ' _*';
+				$blacklist = trim( $blacklist );
+				$this->update_site_option( 'custom_field_blacklist', $blacklist );
+			}
+			$db_ver = 8;
+		}
+
 		$this->update_site_option( 'database_version', $db_ver );
 	}
 
 	public function uninstall()
 	{
+		$this->delete_site_option( 'broadcast_internal_custom_fields' );
 		$query = sprintf( "DROP TABLE `%s`", $this->broadcast_data_table() );
 		$this->query( $query );
 	}
@@ -283,6 +302,68 @@ class ThreeWP_Broadcast
 
 		unset( $this->_is_getting_permalink );
 		return $permalink;
+	}
+
+	/**
+		@brief		Execute callbacks on all posts linked to this specific post.
+		@since		2015-05-02 21:33:55
+	**/
+	public function threewp_broadcast_each_linked_post( $action )
+	{
+		$prefix = 'Each Linked Post: ';
+
+		// First, we need the broadcast data of the post.
+		if ( $action->blog_id === null )
+			$action->blog_id = get_current_blog_id();
+
+		$this->debug( $prefix . 'Loading broadcast data of post %s on blog %s.', $action->post_id, $action->blog_id );
+
+		$broadcast_data = $this->get_post_broadcast_data( $action->blog_id, $action->post_id );
+
+		// Does this post have a parent?
+		$parent = $broadcast_data->get_linked_parent();
+		if ( $parent !== false )
+		{
+			if ( $action->on_parent )
+			{
+				$this->debug( $prefix . 'Executing callbacks on parent post %s on blog %s.', $parent[ 'post_id' ], $parent[ 'blog_id' ] );
+				switch_to_blog( $parent[ 'blog_id' ] );
+				$o = (object)[];
+				$o->post_id = $parent[ 'post_id' ];
+				$o->post = get_post( $o->post_id );
+				$this->debug( $prefix . '' );
+				foreach( $action->callbacks as $callback )
+					$callback( $o );
+				restore_current_blog();
+			}
+			else
+				$this->debug( $prefix . 'Not executing on parent.' );
+			$broadcast_data = $this->get_post_broadcast_data( $parent[ 'blog_id' ], $parent[ 'post_id' ] );
+		}
+		else
+			$this->debug( $prefix . 'No linked parent.' );
+
+		if ( $action->on_children )
+		{
+			$this->debug( $prefix . 'Executing on children.' );
+			foreach( $broadcast_data->get_linked_children() as $blog_id => $post_id )
+			{
+				// Do not bother eaching this child if we started here.
+				if ( $blog_id == $action->blog_id )
+					continue;
+				switch_to_blog( $blog_id );
+				$o = (object)[];
+				$o->post_id = $post_id;
+				$o->post = get_post( $post_id );
+				$this->debug( $prefix . 'Executing callbacks on child post %s on blog %s.', $post_id, $blog_id );
+				foreach( $action->callbacks as $callback )
+					$callback( $o );
+				restore_current_blog();
+			}
+		}
+		else
+			$this->debug( $prefix . 'Not executing on children.' );
+		$this->debug( $prefix . 'Finished.' );
 	}
 
 	/**
@@ -619,12 +700,11 @@ class ThreeWP_Broadcast
 		return array_merge( [
 			'blogs_to_hide' => 5,								// How many blogs to auto-hide
 			'blogs_hide_overview' => 5,							// Use a summary in the overview if more than this amount of children / siblings.
-			'broadcast_internal_custom_fields' => true,		// Broadcast internal custom fields?
 			'canonical_url' => true,							// Override the canonical URLs with the parent post's.
 			'clear_post' => true,								// Clear the post before broadcasting.
-			'custom_field_whitelist' => '_wp_page_template _wplp_ _aioseop_',				// Internal custom fields that should be broadcasted.
 			'custom_field_blacklist' => '',						// Internal custom fields that should not be broadcasted.
 			'custom_field_protectlist' => '',					// Internal custom fields that should not be overwritten on broadcast
+			'custom_field_whitelist' => '',						// Internal custom fields that should be broadcasted in spite of being blacklisted.
 			'database_version' => 0,							// Version of database and settings
 			'debug' => false,									// Display debug information?
 			'debug_ips' => '',									// List of IP addresses that can see debug information, when debug is enabled.

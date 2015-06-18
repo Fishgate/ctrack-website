@@ -2,6 +2,14 @@
  * General styles
  */
 
+.post-content h1, .post-content h2, .post-content h3, .post-content h4, .post-content h5, .post-content h6{
+	@extend %avalon_book;
+}
+
+.fusion-recent-posts .columns .column h4{
+	font-size: 18px !important;
+}
+
 .left {
 	float: left;
 }
@@ -43,9 +51,8 @@
 
 .fusion-main-menu > ul > li > a {
 	-webkit-transition: all 0.3s ease;
-	        transition: all 0.3s ease;
-
-	text-align: center;
+	 transition: all 0.3s ease;
+    text-align: center;
 	line-height: 1 !important;
 	height: 65px;
 	padding: 19px 0 0 0;
@@ -135,6 +142,22 @@
 *                  Body
 *
 *****************************************/
+.za{
+	background-image: url('http://192.168.1.11/CTRACK/website/htdocs/za/wp-content/uploads/sites/2/ZA.png');
+	background-repeat: no-repeat;
+	background-position: center right;
+    padding-right: 15px;
+}
+.fusion-secondary-menu > ul > li > .sub-menu .sub-menu{
+	left:-151px !important;
+	width: 150px !important;
+}
+
+
+.fusion-header-wrapper.fusion-is-sticky .fusion-header, .fusion-header-wrapper.fusion-is-sticky .fusion-secondary-main-menu{
+	  background-color: rgba(255,255,255, 1.0) !important;
+}
+
 .ct_toggle {
 	.ct_toggle_header {
 		cursor: pointer;
@@ -254,7 +277,7 @@
 
 .product-box {
 	color: $ct_dark_blue;
-	background: $ct_trans_white !important;
+	background: rgba(255,255,255,1.0) !important;
 
 	.fusion-button.woo-button {
 		border-width: 0px;
@@ -803,6 +826,17 @@ body .gform_wrapper label.gfield_label+div.ginput_container {
 *
 *****************************************/
 
+.fusion-secondary-menu .sub-menu{
+	width: 120px !important;
+	-webkit-box-shadow: rgba(0,0,0,0.3) 0px 0px 3px 0px;
+	box-shadow: rgba(0,0,0,0.3) 0px 0px 3px 0px;
+}
+
+#menu-item-1487 .sub-menu{
+	width: 300px !important;
+}
+
+
 .fusion-footer-widget-area,
 #slidingbar-area {
 	h3 {
@@ -825,13 +859,47 @@ body .gform_wrapper label.gfield_label+div.ginput_container {
 	}
 }
 
+.myfusion .fusion-secondary-menu > ul > li > a{
+	line-height: 22px !important;
+	height: 22px !important;
+	margin-top: 3px;
+}
+
+.fusion-is-sticky .fusion-header-v2 .fusion-sticky-shadow	{
+		top: 25px !important;
+	}
+
+
 .myfusion{
 	position: fixed;
 	top: 0;
 	width: 100%;
 	z-index: 10000;
-	background-color:#fff !important;
+	background-color:#ffffff !important;
+	min-height: 0px !important;
+}
 
+.myfusion{
+	.fusion-social-links-header{
+		margin-top: 5px;
+		margin-bottom: 0px;
+		padding-top: 0px;
+		padding-bottom: 0px;
+	}
+}
+
+.myfusion{ 
+	.lang-select{
+		margin-top: 3px !important;
+		margin-bottom: 0px !important;
+		padding-top: 0px !important;
+		padding-bottom: 0px !important;	
+		color: #11375d  !important;
+	}
+}
+
+.myfusion .fusion-row a {
+color: #11375d  !important;
 }
 
 .fusion-sticky-shadow{
