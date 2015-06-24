@@ -9,7 +9,7 @@ ct$(document).ready(function(){
 			nextRow = 0;
 		}
 
-		ct$('.redirects-tbl').append("<tr class=\"redirect\" data-id=\""+nextRow+"\"><td><input type=\"text\" class=\"regular-text\" name=\"redirect-code[0]\" value=\"\" placeholder=\"Country Code\"></td><td><input type=\"text\" class=\"regular-text\" name=\"redirect-url[0]\" value=\"\" placeholder=\"Redirect URL\"></td><td style=\"cursor: pointer;\" class=\"remove-row-btn\" data-id=\""+nextRow+"\"><a>&times; Remove Row</a></td>");
+		ct$('.redirects-tbl').append("<tr class=\"redirect\" data-state=\"insert\"  data-id=\""+nextRow+"\"><td><input type=\"text\" class=\"regular-text\" name=\"redirect-code["+nextRow+"]\" value=\"\" placeholder=\"Country Code\"></td><td><input type=\"text\" class=\"regular-text\" name=\"redirect-url["+nextRow+"]\" value=\"\" placeholder=\"Redirect URL\"></td><td style=\"cursor: pointer;\" class=\"remove-row-btn\" data-id=\""+nextRow+"\"><a>&times; Remove Row</a></td>");
 	});
 
 	

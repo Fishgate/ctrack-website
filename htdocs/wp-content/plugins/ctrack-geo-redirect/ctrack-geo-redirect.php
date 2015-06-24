@@ -8,48 +8,111 @@ Author: kyle@fishgate.co.za <kyle@fishgate.co.za>
 Author URI: http://source-lab.co.za/
 */
 
-/**
- * Install
- */
+if(is_admin()) {
+
+	/**
+	 * Initialise
+	 */
+	require_once('classes/georedirect.class.php');
+
+	/**
+	 * Install
+	 */
+	function ctgr_install() {
+		global $wpdb;
+
+		$tbl_name = $wpdb->prefix . "ctrack_geo_redirect";
+
+		$sql = "CREATE TABLE $tbl_name (
+	        id int(9) NOT NULL AUTO_INCREMENT,
+	        fieldnum text NOT NULL,
+	        countrycode text NOT NULL,
+	        redirecturl text NOT NULL,
+	        UNIQUE KEY id (id)
+	    ) ENGINE=MyISAM;";
+
+	 	require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+	    dbDelta($sql);
+	}
+	register_activation_hook(__FILE__, 'ctgr_install');
 
 
+	/**
+	 * Network Admin menu interface
+	 */
 
-/**
- * Network Admin menu interface
- */
-if(is_admin()) {	
 	function ctgr_settings_page() {
+		$ctgr = new CtrackGeoRedirect();
+
+		if(isset($_POST['submit']) && $_POST['submit'] == "Save Changes") {
+			echo '<pre>';
+			print_r($_POST);
+			echo '</pre>';
+
+			echo '<hr />';
+
+			echo '<pre>';
+			print_r($ctgr->preparePost($_POST));
+			echo '</pre>';
+		}
+
 		?>
 		
 		<div class="wrap">
-			<h2><?php _e('Ctrack Geo-Redirect Settings', 'Avada'); ?></h2>
+			<form action="" method="post">
 
-			<h3>Redirects</h3>
+				<h2><?php _e('Ctrack Geo-Redirect Settings', 'Avada'); ?></h2>
 
-			<table class="redirects-tbl">
-				<tbody>
-				<!-- <tr class="redirect" data-id="0">
-					<td>
-						<input type="text" class="regular-text" name="redirect-code[0]" value="" placeholder="Country Code">
-					</td>
-					<td>
-						<input type="text" class="regular-text" name="redirect-url[0]" value="" placeholder="Redirect URL">
-					</td>
-					<td style="cursor: pointer;" class="remove-row-btn" data-id="0">
-						<a>&times; Remove Row</a>
-					</td>
-				</tr> -->
-				</tbody>
-			</table>
-			<table class="add-row">
-				<tr>
-					<td class="add-row-btn"><a>&plus; Add Redirect</a></td>
-				</tr>
-			</table>
+				<h3>General Settings</h3>
+				<table class="general-tbl form-table">
+					<tr>
+						<th scope="row">Enable Ctrack.com redirect</th>
+						<td>
+							<label><input name="com-redirect" type="checkbox" id="com-redirect" value="true">Automatically redirects first time visitors to Ctrack.com if no country website is specified.</label>
+						</td>
+					</tr>
+				</table>
 
+				<h3>Country Redirects</h3>
+				<table class="redirects-tbl">
+					<tbody>
 
-			<p class="submit"><input type="submit" name="submit" id="submit" class="button button-primary" value="Save Changes"></p>
-        </div>		
+					<?php
+					
+					if($redirect_rows = $ctgr->fetchRedirects()){
+						foreach ($redirect_rows as $redirect_row) {
+							?>
+							<tr class="redirect" data-state="update" data-id="<?php echo $redirect_row->id; ?>">
+								<td>
+									<input type="text" class="regular-text" name="redirect-code[<?php echo $redirect_row->id; ?>]" value="<?php echo $redirect_row->countrycode; ?>" placeholder="Country Code">
+								</td>
+								<td>
+									<input type="text" class="regular-text" name="redirect-url[<?php echo $redirect_row->id; ?>]" value="<?php echo $redirect_row->redirecturl; ?>" placeholder="Redirect URL">
+								</td>
+								<td style="cursor: pointer;" class="remove-row-btn">
+									<a>&times; Remove Row</a>
+								</td>
+								<!-- <td class="ajax-loader" valign="middle">
+									<img src="<?php echo plugins_url('/assets/images/ajax-loader.gif', __FILE__); ?>" />
+								</td> -->
+							</tr>
+							<?php
+						}
+					}
+					?>
+
+					</tbody>
+				</table>
+				<table class="add-row">
+					<tr>
+						<td class="add-row-btn"><a>&plus; Add Redirect</a></td>
+					</tr>
+				</table>
+
+				<p class="submit"><input type="submit" name="submit" id="submit" class="button button-primary" value="Save Changes"></p>
+
+			</form>
+	    </div>
 
 		<?php
 	}
@@ -59,12 +122,12 @@ if(is_admin()) {
 		wp_enqueue_style('ctgr-admin-style', plugins_url('assets/css/style.css', __FILE__));
 	}
 
-	function ctgr_setup_network_admin_page() {  
+	function ctgr_setup_network_admin_page() {
 	    add_menu_page('Ctrack Geo-Redirect Settings', 'Redirect Settings', 'manage_options', 'ct-geo-redirect', ctgr_settings_page, null, null);
 	}
 
 	add_action('network_admin_menu', 'ctgr_setup_network_admin_page');
 	add_action('network_admin_menu', 'ctgr_admin_dependencies');
-}
 
+}
 ?>
