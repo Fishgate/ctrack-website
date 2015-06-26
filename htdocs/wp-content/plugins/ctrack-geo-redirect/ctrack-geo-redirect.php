@@ -8,13 +8,9 @@ Author: kyle@fishgate.co.za <kyle@fishgate.co.za>
 Author URI: http://source-lab.co.za/
 */
 
+require_once( plugin_dir_path( __FILE__ ) . 'classes/georedirect.class.php' );
+
 if(is_admin()) {
-
-	/**
-	 * Initialise
-	 */
-	require_once('classes/georedirect.class.php');
-
 	/**
 	 * Install
 	 */
@@ -40,19 +36,13 @@ if(is_admin()) {
 	/**
 	 * Network Admin menu interface
 	 */
-
 	function ctgr_settings_page() {
 		$ctgr = new CtrackGeoRedirect();
 
 		if(isset($_POST['submit']) && $_POST['submit'] == "Save Changes") {
 			echo '<pre>';
-			print_r($_POST);
-			echo '</pre>';
-
-			echo '<hr />';
-
-			echo '<pre>';
-			print_r($ctgr->preparePost($_POST));
+			$output = $ctgr->updateRedirects($_POST);
+			print_r(json_decode($output));
 			echo '</pre>';
 		}
 
@@ -82,12 +72,12 @@ if(is_admin()) {
 					if($redirect_rows = $ctgr->fetchRedirects()){
 						foreach ($redirect_rows as $redirect_row) {
 							?>
-							<tr class="redirect" data-state="update" data-id="<?php echo $redirect_row->id; ?>">
+							<tr class="redirect" data-state="update" data-id="<?php echo $redirect_row->fieldnum; ?>">
 								<td>
-									<input type="text" class="regular-text" name="redirect-code[<?php echo $redirect_row->id; ?>]" value="<?php echo $redirect_row->countrycode; ?>" placeholder="Country Code">
+									<input type="text" class="regular-text" name="redirect-code[<?php echo $redirect_row->fieldnum; ?>]" value="<?php echo $redirect_row->countrycode; ?>" placeholder="Country Code">
 								</td>
 								<td>
-									<input type="text" class="regular-text" name="redirect-url[<?php echo $redirect_row->id; ?>]" value="<?php echo $redirect_row->redirecturl; ?>" placeholder="Redirect URL">
+									<input type="text" class="regular-text" name="redirect-url[<?php echo $redirect_row->fieldnum; ?>]" value="<?php echo urldecode($redirect_row->redirecturl); ?>" placeholder="Redirect URL">
 								</td>
 								<td style="cursor: pointer;" class="remove-row-btn">
 									<a>&times; Remove Row</a>
@@ -123,7 +113,7 @@ if(is_admin()) {
 	}
 
 	function ctgr_setup_network_admin_page() {
-	    add_menu_page('Ctrack Geo-Redirect Settings', 'Redirect Settings', 'manage_options', 'ct-geo-redirect', ctgr_settings_page, null, null);
+	    add_menu_page('Ctrack Geo-Redirect Settings', 'Redirect Settings', 'manage_options', 'ct-geo-redirect', 'ctgr_settings_page', null, null);
 	}
 
 	add_action('network_admin_menu', 'ctgr_setup_network_admin_page');
